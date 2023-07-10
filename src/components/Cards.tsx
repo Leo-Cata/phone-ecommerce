@@ -1,31 +1,58 @@
 import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material'
 import { PhoneBrands } from '../types/types'
+import { useEffect, useState } from 'react'
+import { getBrandBySlug } from '../services/phoneApi'
 
 const Cards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
-  console.log(phoneBrands)
+  const [phoneImages, setPhoneImages] = useState<string[]>()
 
+  useEffect(() => {
+    //from phoneBrands map through them and then same each brand slug in a new array
+    const extractBrandSlugs = (Array: PhoneBrands[]): string[] =>
+      Array.map((brand) => brand.brand_slug)
+    const extractedSlugs = extractBrandSlugs(phoneBrands)
+
+    //we map through those brand slugs and for each one, fetch them, then return the image of the first element of each brand slug
+    const fetchBrandsImgBySlug = async () => {
+      try {
+        const brandDataPromises = extractedSlugs.map(async (brandSlug) => {
+          const response = await getBrandBySlug(brandSlug)
+          return response.data.data.phones[0].image
+        })
+        //wait for it to completa all the fetching and then save it in a state
+        const phoneData = await Promise.all(brandDataPromises)
+        setPhoneImages(phoneData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchBrandsImgBySlug()
+  }, [phoneBrands])
+
+  console.log(phoneImages)
   return (
     <Grid container justifyContent={'space-evenly'}>
-      {phoneBrands.map((brand) => (
-        <Grid key={brand.brand_id}>
-          <Card className="m-2 px-2">
-            <CardMedia
-              component="img"
-              image="https://fdn2.gsmarena.com/vv/bigpic/acer-chromebook-tab-10.jpg"
-              alt="Phone Brand Image"
-              className="h-[300px] object-contain"
-            />
-            <CardContent>
-              <Typography variant="h5" className="text-center">
-                {brand.brand_name}
-              </Typography>
-              <Typography variant="body2">
-                Available Devices {brand.device_count}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
+      {phoneImages &&
+        phoneBrands.map((brand, index) => (
+          <Grid key={brand.brand_id}>
+            <Card className="m-2 px-2">
+              <CardMedia
+                component="img"
+                image={phoneImages[index]}
+                alt="Phone Brand Image"
+                className="mt-2 h-[270px] object-contain"
+              />
+              <CardContent>
+                <Typography variant="h5" className="text-center">
+                  {brand.brand_name}
+                </Typography>
+                <Typography variant="body2">
+                  Available Devices {brand.device_count}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
     </Grid>
   )
 }

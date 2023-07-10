@@ -10,17 +10,19 @@ const CardsContainer = () => {
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const response = await getBrands()
-        setPhoneBrands(response.data.data)
+        const brandsResponse = await getBrands()
+        setPhoneBrands(brandsResponse.data.data)
       } catch (error) {
         console.log(error)
       }
     }
+
     fetchBrands()
   }, [])
+
   return (
     <Grid
-      className="h-full w-full bg-blue-300 px-40 py-10"
+      className="h-full w-full bg-purple-950 px-40 py-10"
       container
       justifyContent={'center'}>
       {phoneBrands && <Cards phoneBrands={phoneBrands} />}
