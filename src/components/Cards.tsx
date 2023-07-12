@@ -29,18 +29,17 @@ const Cards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
     fetchBrandsImgBySlug()
   }, [phoneBrands])
 
-  console.log(phoneImages)
   return (
     <Grid container justifyContent={'space-evenly'}>
-      {phoneImages &&
+      {phoneBrands &&
         phoneBrands.map((brand, index) => (
           <Grid key={brand.brand_id}>
             <Card className="m-2 px-2">
               <CardMedia
                 component="img"
-                image={phoneImages[index]}
-                alt="Phone Brand Image"
-                className="mt-2 h-[270px] object-contain"
+                image={phoneImages ? phoneImages[index] : ''}
+                alt={`${brand.brand_name} phone image`}
+                className="mt-2 h-[270px] min-w-[220px] object-contain"
               />
               <CardContent>
                 <Typography variant="h5" className="text-center">
