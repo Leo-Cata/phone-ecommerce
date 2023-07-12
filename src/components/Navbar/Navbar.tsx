@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded'
 import NavbarDrawer from './NavbarDrawer'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   // const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null)
@@ -40,16 +41,16 @@ const Navbar = () => {
           spacing={2}
           className="hidden text-white md:block">
           <Button color="inherit" variant="text">
-            Brand List
+            <Link to={'/'}>Brand List</Link>
           </Button>
           <Button color="inherit" variant="text">
-            Latest
+            <Link to={'/latest'}>Latest</Link>
           </Button>
           <Button color="inherit" variant="text">
-            Top by interest
+            <Link to={'/interest'}>Top by interest</Link>
           </Button>
           <Button color="inherit" variant="text">
-            Top by fans
+            <Link to={'/fans'}>Top by fans</Link>
           </Button>
         </Stack>
         {/* mobile menu */}
