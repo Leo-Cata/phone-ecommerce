@@ -41,7 +41,7 @@ const Navbar = () => {
           spacing={2}
           className="hidden text-white md:block">
           <Button color="inherit" variant="text">
-            <Link to={'/categories'}>Brand List</Link>
+            <Link to={'/'}>Brand List</Link>
           </Button>
           <Button color="inherit" variant="text">
             <Link to={'/latest'}>Latest</Link>
