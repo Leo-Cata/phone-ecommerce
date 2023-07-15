@@ -2,6 +2,7 @@ import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material'
 import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
+import { Link } from 'react-router-dom'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
@@ -34,23 +35,25 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
       {phoneBrands &&
         phoneBrands.map((brand, index) => (
           <Grid key={brand.brand_id}>
-            <Card className="m-2 px-2">
-              <CardMedia
-                component="img"
-                image={phoneImages ? phoneImages[index] : ''}
-                alt={`${brand.brand_name} phone image`}
-                className="mt-2 h-[270px] min-w-[220px] object-contain"
-                loading="lazy"
-              />
-              <CardContent>
-                <Typography variant="h5" className="text-center">
-                  {brand.brand_name}
-                </Typography>
-                <Typography variant="body2">
-                  Available Devices {brand.device_count}
-                </Typography>
-              </CardContent>
-            </Card>
+            <Link to={`/brands/${brand.brand_slug}`}>
+              <Card className="m-2 px-2">
+                <CardMedia
+                  component="img"
+                  image={phoneImages ? phoneImages[index] : ''}
+                  alt={`${brand.brand_name} phone image`}
+                  className="mt-2 h-[270px] min-w-[220px] object-contain"
+                  loading="lazy"
+                />
+                <CardContent>
+                  <Typography variant="h5" className="text-center">
+                    {brand.brand_name}
+                  </Typography>
+                  <Typography variant="body2">
+                    Available Devices {brand.device_count}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </Grid>
         ))}
     </Grid>

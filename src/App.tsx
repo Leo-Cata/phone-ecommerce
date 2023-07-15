@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router'
 import Latest from './components/Latest'
 import TopByInterest from './components/Navbar/TopByInterest'
 import TopByFans from './components/Navbar/TopByFans'
+import PhoneList from './components/PhoneList'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<BrandsCardsContainer />} />
+        <Route path="/brands/:brandSlug" element={<PhoneList />} />
         <Route path="/latest" element={<Latest />} />
         <Route path="/interest" element={<TopByInterest />} />
         <Route path="/fans" element={<TopByFans />} />
