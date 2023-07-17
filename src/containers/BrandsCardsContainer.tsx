@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
-import { Grid } from '@mui/material'
+import { Box } from '@mui/material'
 import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
 
@@ -21,12 +21,9 @@ const BrandsCardsContainer = () => {
   }, [])
 
   return (
-    <Grid
-      className="h-full w-full px-40 py-10"
-      container
-      justifyContent={'center'}>
+    <Box className="h-full w-full px-40 py-10">
       {phoneBrands && <BrandsCards phoneBrands={phoneBrands} />}
-    </Grid>
+    </Box>
   )
 }
 

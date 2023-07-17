@@ -3,8 +3,10 @@ import { useParams } from 'react-router'
 import { getBrandBySlug } from '../services/phoneApi'
 import { BrandsPhoneList, Phones } from '../types/types'
 import { AxiosResponse } from 'axios'
+import { Stack } from '@mui/material'
+import PhoneCards from '../components/PhoneCards'
 
-const PhoneList = () => {
+const PhoneListContainer = () => {
   //get the brand slug when the user clicks on the brand list
   const { brandSlug } = useParams()
 
@@ -15,8 +17,6 @@ const PhoneList = () => {
 
   const [pagesNumber, setPagesNumber] = useState(1)
 
-  console.log(brandSlug)
-
   //fetch the list of phones for said brand
   useEffect(() => {
     const fetchBrandsPhones = async () => {
@@ -26,7 +26,6 @@ const PhoneList = () => {
             brandSlug,
             page,
           )
-          console.log(response.data)
           setPagesNumber(response.data.data.last_page)
           const brandsPhones: Phones[] = response.data.data.phones
           setBrandsPhones(brandsPhones)
@@ -38,15 +37,11 @@ const PhoneList = () => {
     fetchBrandsPhones()
   }, [brandSlug, page])
 
-  console.log(brandsPhones)
-  console.log(pagesNumber)
-
-  const handleSetPage = () => {
-    const pageNumb = prompt('asd')
-    setPage(parseInt(pageNumb))
-  }
-  console.log(page)
-  return <div onClick={handleSetPage}>{brandSlug}</div>
+  return (
+    <Stack className="h-full w-full px-40 py-10">
+      {brandsPhones && <PhoneCards brandsPhones={brandsPhones} />}
+    </Stack>
+  )
 }
 
-export default PhoneList
+export default PhoneListContainer

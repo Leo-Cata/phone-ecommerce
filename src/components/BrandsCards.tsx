@@ -34,7 +34,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
     <Grid container justifyContent={'space-evenly'}>
       {phoneBrands &&
         phoneBrands.map((brand, index) => (
-          <Grid key={brand.brand_id}>
+          <Grid key={brand.brand_id} item>
             <Link to={`/brands/${brand.brand_slug}`}>
               <Card className="m-2 px-2">
                 <CardMedia
