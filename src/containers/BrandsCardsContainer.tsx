@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
-import { Grid } from '@mui/material'
-import Cards from '../components/Cards'
+import { Box } from '@mui/material'
+import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
 
-const CardsContainer = () => {
+const BrandsCardsContainer = () => {
   const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
 
   useEffect(() => {
@@ -21,13 +21,10 @@ const CardsContainer = () => {
   }, [])
 
   return (
-    <Grid
-      className="h-full w-full bg-purple-950 px-40 py-10"
-      container
-      justifyContent={'center'}>
-      {phoneBrands && <Cards phoneBrands={phoneBrands} />}
-    </Grid>
+    <Box className="h-full w-full px-40 py-10">
+      {phoneBrands && <BrandsCards phoneBrands={phoneBrands} />}
+    </Box>
   )
 }
 
-export default CardsContainer
+export default BrandsCardsContainer

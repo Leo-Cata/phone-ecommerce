@@ -11,5 +11,9 @@ const api = axios.create({
 export const getBrands = () => api.get('/brands')
 
 //fetch from an specific brand
-export const getBrandBySlug = (brandSlug: string) =>
-  api.get(`/brands/${brandSlug}`)
+export const getBrandBySlug = (brandSlug: string, page?: number) =>
+  api.get(`/brands/${brandSlug}`, {
+    params: {
+      page: page ? page.toString() : undefined,
+    },
+  })
