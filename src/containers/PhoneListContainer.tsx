@@ -5,6 +5,7 @@ import { BrandsPhoneList, Phones } from '../types/types'
 import { AxiosResponse } from 'axios'
 import { Stack } from '@mui/material'
 import PhoneCards from '../components/PhoneCards'
+import PageNumbersButtons from '../components/PageNumbersButton'
 
 const PhoneListContainer = () => {
   //get the brand slug when the user clicks on the brand list
@@ -15,7 +16,7 @@ const PhoneListContainer = () => {
 
   const [page, setPage] = useState(1)
 
-  const [pagesNumber, setPagesNumber] = useState(1)
+  const [numberOfPages, setNumberOfPages] = useState(1)
 
   //fetch the list of phones for said brand
   useEffect(() => {
@@ -26,7 +27,7 @@ const PhoneListContainer = () => {
             brandSlug,
             page,
           )
-          setPagesNumber(response.data.data.last_page)
+          setNumberOfPages(response.data.data.last_page)
           const brandsPhones: Phones[] = response.data.data.phones
           setBrandsPhones(brandsPhones)
         }
@@ -37,9 +38,18 @@ const PhoneListContainer = () => {
     fetchBrandsPhones()
   }, [brandSlug, page])
 
+  const handlePage = (page: number) => {
+    setPage(page)
+  }
+
   return (
-    <Stack className="h-full w-full px-40 py-10">
+    <Stack className="px-40 py-10" spacing={4} alignItems={'center'}>
       {brandsPhones && <PhoneCards brandsPhones={brandsPhones} />}
+      <PageNumbersButtons
+        handlePage={handlePage}
+        numberOfPages={numberOfPages}
+        page={page}
+      />
     </Stack>
   )
 }

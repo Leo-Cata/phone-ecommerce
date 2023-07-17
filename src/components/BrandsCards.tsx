@@ -31,7 +31,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   }, [phoneBrands])
 
   return (
-    <Grid container justifyContent={'space-evenly'}>
+    <Grid container>
       {phoneBrands &&
         phoneBrands.map((brand, index) => (
           <Grid key={brand.brand_id} item>
