@@ -22,3 +22,9 @@ export interface Phones {
   image: string
   detail: string
 }
+
+export interface ButtonInputAndPages {
+  handlePage: (page: number) => void
+  numberOfPages: number
+  page: number
+}

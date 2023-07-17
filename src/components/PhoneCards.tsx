@@ -4,7 +4,7 @@ import { Phones } from '../types/types'
 const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
   console.log(brandsPhones)
   return (
-    <Grid container justifyContent={'center'} spacing={2}>
+    <Grid container spacing={2} justifyContent={'center'}>
       {brandsPhones.map((phone) => (
         <Grid item key={phone.phone_name}>
           <Card className=" min-h-[400px] w-[220px] pb-2 pt-4 transition-transform duration-300 hover:scale-105 hover:bg-[#333333]">
