@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TopByFans = () => {
   return <div>TopByFans</div>
 }
