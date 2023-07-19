@@ -37,7 +37,7 @@ const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
           xl={2}
           key={phone.phone_name}
           className="flex justify-center">
-          <Card className="w-[210px] p-2">
+          <Card className="w-[210px] p-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
             <CardMedia
               component="img"
               image={phone.image}

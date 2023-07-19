@@ -1,4 +1,11 @@
-import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material'
+import {
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  CircularProgress,
+} from '@mui/material'
 import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
@@ -37,13 +44,20 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
           <Grid key={brand.brand_id} item>
             <Link to={`/brands/${brand.brand_slug}`}>
               <Card className="m-2 px-2">
-                <CardMedia
-                  component="img"
-                  image={phoneImages ? phoneImages[index] : ''}
-                  alt={`${brand.brand_name} phone image`}
-                  className="mt-2 h-[270px] min-w-[220px] object-contain"
-                  loading="lazy"
-                />
+                {phoneImages ? (
+                  <CardMedia
+                    component="img"
+                    image={phoneImages ? phoneImages[index] : ''}
+                    alt={`${brand.brand_name} phone image`}
+                    className="mt-2 h-[270px] min-w-[220px] object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="mt-2 flex h-[270px] min-w-[220px] items-center justify-center">
+                    <CircularProgress />
+                  </div>
+                )}
+
                 <CardContent>
                   <Typography variant="h5" className="text-center">
                     {brand.brand_name}

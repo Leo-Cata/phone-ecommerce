@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import { getBrandBySlug } from '../services/phoneApi'
 import { BrandsPhoneList, Phones } from '../types/types'
 import { AxiosResponse } from 'axios'
-import { Grid, Stack } from '@mui/material'
+import { Stack } from '@mui/material'
 import PhoneCards from '../components/PhoneCards'
 import PageNumbersButtons from '../components/PageNumbersButton'
 
