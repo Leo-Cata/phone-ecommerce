@@ -6,11 +6,14 @@ import {
   StyledEngineProvider,
   ThemeProvider,
   createTheme,
+  responsiveFontSizes,
 } from '@mui/material/styles'
 import { BrowserRouter } from 'react-router-dom'
 import { CssBaseline } from '@mui/material'
 
-const darkTheme = createTheme({ palette: { mode: 'dark' } })
+const darkTheme = responsiveFontSizes(
+  createTheme({ palette: { mode: 'dark' } }),
+)
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
