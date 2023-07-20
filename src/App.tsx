@@ -3,7 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import { Route, Routes } from 'react-router'
 import Latest from './components/Latest'
 import TopByInterest from './components/Navbar/TopByInterest'
-import TopByFans from './components/Navbar/TopByFans'
+import TopByFans from './components/TopByFans'
 import PhoneListContainer from './containers/PhoneListContainer'
 import PhoneSpecs from './components/PhoneSpecs'
 
