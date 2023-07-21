@@ -7,6 +7,14 @@ const api = axios.create({
   baseURL,
 })
 
+export const getPhoneSpecs = async (phoneSlug: string) => {
+  try {
+    const response = await api.get(`/${phoneSlug}`)
+    return response.data
+  } catch (error) {
+    throw new Error('Failed to fetch phone specs.')
+  }
+}
 //fetch list of all brands
 export const getBrands = () => api.get('/brands')
 

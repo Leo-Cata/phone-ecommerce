@@ -28,3 +28,25 @@ export interface ButtonInputAndPages {
   numberOfPages: number
   page: number
 }
+
+export interface PhoneSpecifications {
+  brand: string
+  phone_name: string
+  thumbnail: string
+  phone_images: string[]
+  release_date: string
+  dimension: string
+  os: number
+  storage: string
+  specifications: PhoneSpecificationItem[]
+}
+
+interface PhoneSpecificationItem {
+  title: string
+  specs: PhoneSpecification[]
+}
+
+interface PhoneSpecification {
+  key: string
+  val: string[]
+}
