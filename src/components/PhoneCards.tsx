@@ -17,13 +17,13 @@ const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
           key={phone.phone_name}
           className="flex justify-center">
           <Link to={`/${phone.slug}`}>
-            <Card className="w-[210px] p-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
+            <Card className=" h-[390px] w-[210px] p-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
               <CardMedia
                 component="img"
                 image={phone.image}
                 className="w-[200px] object-contain"
               />
-              <CardContent>
+              <CardContent className="">
                 <Typography textAlign={'center'} variant="h5">
                   {phone.phone_name}
                 </Typography>

@@ -22,17 +22,19 @@ const Navbar = () => {
   // }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="cursor-pointer">
       <Toolbar>
         <IconButton
-          size="large"
+          size="small"
           edge="start"
           aria-label="logo"
           className="text-white">
-          <EdgesensorHighRoundedIcon />
+          <Link to={'/'}>
+            <EdgesensorHighRoundedIcon />
+          </Link>
         </IconButton>
         <Typography variant="h6" className="flex-grow">
-          Phone Ecommerce
+          <Link to={'/'}>Phone Ecommerce</Link>
         </Typography>
 
         {/* links buttons */}
