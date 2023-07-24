@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
-import { Box } from '@mui/material'
+import { Stack } from '@mui/material'
 import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
 
@@ -21,9 +21,12 @@ const BrandsCardsContainer = () => {
   }, [])
 
   return (
-    <Box className="h-full w-full px-40 py-10">
+    <Stack
+      className="m-4 2xl:mx-40 2xl:my-10"
+      alignItems={'center'}
+      spacing={2}>
       {phoneBrands && <BrandsCards phoneBrands={phoneBrands} />}
-    </Box>
+    </Stack>
   )
 }
 

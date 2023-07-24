@@ -41,9 +41,9 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
     <Grid container>
       {phoneBrands &&
         phoneBrands.map((brand, index) => (
-          <Grid key={brand.brand_id} item>
+          <Grid key={brand.brand_id} item xs={12} sm={6} md={4} lg={3} xl={3}>
             <Link to={`/brands/${brand.brand_slug}`}>
-              <Card className="m-2 px-2">
+              <Card className="m-2 px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
                 {phoneImages ? (
                   <CardMedia
                     component="img"
