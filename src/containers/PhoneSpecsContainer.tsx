@@ -31,18 +31,18 @@ const PhoneSpecsContainer = () => {
   }, [phoneSlug])
   console.log(typeof phoneSpecifications?.os)
   return (
-    <Stack className="m-4 sm:mx-40 sm:my-10" alignItems={'center'}>
+    <Stack className="m-4 2xl:mx-40 2xl:my-10" alignItems={'center'}>
       {phoneSpecifications && (
-        <Paper>
+        <Paper className="w-full">
           <Stack spacing={2} className="p-4">
-            <Typography variant="h3">
+            <Typography variant="h3" textAlign={'center'}>
               {phoneSpecifications.brand} {''} {phoneSpecifications.phone_name}
             </Typography>
 
             <img
               src={phoneSpecifications.phone_images[1]}
               alt={`${phoneSpecifications.phone_name} image`}
-              className="flex w-80 self-center"
+              className="flex min-w-[310px] max-w-[410px] self-center"
             />
             <Divider />
 
