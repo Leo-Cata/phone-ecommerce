@@ -27,7 +27,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
           const response = await getBrandBySlug(brandSlug)
           return response.data.data.phones[0].image
         })
-        //wait for it to completa all the fetching and then save it in a state
+        //wait for it to complete all the fetching and then save it in a state
         const phoneData = await Promise.all(brandDataPromises)
         setPhoneImages(phoneData)
       } catch (error) {
