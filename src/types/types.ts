@@ -51,6 +51,10 @@ interface PhoneSpecification {
   val: string[]
 }
 
+export interface PhoneSpecsProps {
+  specifications: PhoneSpecificationItem[]
+}
+
 export interface BasicInfoProps {
   // os is giving error when type is set to string so it is set to any in types.ts
   os: any

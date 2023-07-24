@@ -5,7 +5,7 @@ import Latest from './components/Latest'
 import TopByInterest from './components/Navbar/TopByInterest'
 import TopByFans from './components/TopByFans'
 import PhoneListContainer from './containers/PhoneListContainer'
-import PhoneSpecs from './components/PhoneSpecs/PhoneSpecs'
+import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<BrandsCardsContainer />} />
         <Route path="/brands/:brandSlug" element={<PhoneListContainer />} />
-        <Route path="/:phoneSlug" element={<PhoneSpecs />} />
+        <Route path="/:phoneSlug" element={<PhoneSpecsContainer />} />
         <Route path="/latest" element={<Latest />} />
         <Route path="/interest" element={<TopByInterest />} />
         <Route path="/fans" element={<TopByFans />} />
