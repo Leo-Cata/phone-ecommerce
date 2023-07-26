@@ -10,12 +10,13 @@ import AddIcon from '@mui/icons-material/Add'
 import { PhoneSpecsProps } from '../../types/types'
 
 const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
-  console.log(specifications)
-
   return (
     <Box>
       {specifications.map((specifications, index) => (
-        <Accordion key={specifications.title} elevation={4}>
+        <Accordion
+          key={specifications.title}
+          elevation={4}
+          className="bg-custom-primary">
           <AccordionSummary
             expandIcon={<AddIcon />}
             aria-controls={`panel${index}a-content`}
@@ -24,8 +25,8 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
           </AccordionSummary>
 
           {/* map through the title of the specs */}
-          {specifications.specs.map((specs) => (
-            <AccordionDetails key={specs.key}>
+          {specifications.specs.map((specs, specsIndex) => (
+            <AccordionDetails key={specs.key && specsIndex}>
               <Box>
                 <Typography variant="subtitle1" className="font-semibold">
                   {specs.key}

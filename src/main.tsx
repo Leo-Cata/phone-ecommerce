@@ -12,7 +12,12 @@ import { BrowserRouter } from 'react-router-dom'
 import { CssBaseline } from '@mui/material'
 
 const darkTheme = responsiveFontSizes(
-  createTheme({ palette: { mode: 'dark' } }),
+  createTheme({
+    palette: {
+      background: { default: '#211d49' },
+      mode: 'dark',
+    },
+  }),
 )
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
