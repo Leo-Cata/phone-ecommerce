@@ -31,7 +31,7 @@ const PhoneSpecsContainer = () => {
   }, [phoneSlug])
   console.log(typeof phoneSpecifications?.os)
   return (
-    <Stack className="m-4 2xl:mx-40 2xl:my-10" alignItems={'center'}>
+    <>
       {phoneSpecifications && (
         <Paper className="w-full">
           <Stack spacing={2} className="p-4">
@@ -42,7 +42,7 @@ const PhoneSpecsContainer = () => {
             <img
               src={phoneSpecifications.phone_images[1]}
               alt={`${phoneSpecifications.phone_name} image`}
-              className="flex min-w-[310px] max-w-[410px] self-center"
+              className="flex w-full min-w-[220px] max-w-[500px] self-center rounded-lg object-contain"
             />
             <Divider />
 
@@ -61,7 +61,7 @@ const PhoneSpecsContainer = () => {
           </Stack>
         </Paper>
       )}
-    </Stack>
+    </>
   )
 }
 

@@ -25,7 +25,7 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
 
           {/* map through the title of the specs */}
           {specifications.specs.map((specs) => (
-            <AccordionDetails>
+            <AccordionDetails key={specs.key}>
               <Box>
                 <Typography variant="subtitle1" className="font-semibold">
                   {specs.key}
