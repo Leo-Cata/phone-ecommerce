@@ -9,7 +9,6 @@ import PageNumbersButtons from '../components/PageNumbersButton'
 const PhoneListContainer = () => {
   //get the brand slug when the user clicks on the brand list
   const { brandSlug } = useParams()
-  console.log(brandSlug)
 
   //set the array of phones
   const [brandsPhones, setBrandsPhones] = useState<Phones[]>()

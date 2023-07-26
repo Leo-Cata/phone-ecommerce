@@ -13,7 +13,6 @@ const PhoneSpecsContainer = () => {
   //state to save the data fetched
   const [phoneSpecifications, setPhoneSpecifications] =
     useState<PhoneSpecifications | null>(null)
-  console.log(phoneSpecifications)
   //use effect to fetch
   useEffect(() => {
     const fetchPhoneSpecs = async () => {
@@ -29,7 +28,6 @@ const PhoneSpecsContainer = () => {
     }
     fetchPhoneSpecs()
   }, [phoneSlug])
-  console.log(typeof phoneSpecifications?.os)
   return (
     <>
       {phoneSpecifications && (

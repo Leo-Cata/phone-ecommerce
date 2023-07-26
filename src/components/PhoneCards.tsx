@@ -5,7 +5,6 @@ import CardMediaComponent from './CardMediaComponent'
 import CardComponent from './CardComponent'
 
 const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
-  console.log(brandsPhones)
   return (
     <Grid container>
       {brandsPhones.map((phone) => (
