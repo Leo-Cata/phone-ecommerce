@@ -11,30 +11,20 @@ import NavbarDrawer from './NavbarDrawer'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  // const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null)
-  // const isOpen = Boolean(anchorElement)
-
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   setAnchorElement(event.currentTarget)
-  // }
-  // const handleClose = () => {
-  //   setAnchorElement(null)
-  // }
-
   return (
-    <AppBar position="static" className="cursor-pointer">
+    <AppBar position="static" className="bg-custom-secondary">
       <Toolbar>
         <IconButton
           size="small"
           edge="start"
           aria-label="logo"
-          className="text-white">
+          className="cursor-pointer text-custom-text">
           <Link to={'/'}>
             <EdgesensorHighRoundedIcon />
           </Link>
         </IconButton>
         <Typography variant="h6" className="flex-grow">
-          <Link to={'/'}>Phone Ecommerce</Link>
+          <Link to={'/'}>Phone E-commerce</Link>
         </Typography>
 
         {/* links buttons */}
@@ -55,31 +45,9 @@ const Navbar = () => {
             <Link to={'/fans'}>Top by fans</Link>
           </Button>
         </Stack>
+
         {/* mobile menu */}
         <NavbarDrawer />
-        {/* menu button */}
-        {/* <IconButton
-          color="inherit"
-          size="large"
-          id="mobile-button"
-          aria-controls={isOpen ? 'mobile-menu' : undefined}
-          onClick={handleClick}
-          className="block md:hidden">
-          <MenuIcon />
-        </IconButton> */}
-        {/* menu and items to display */}
-        {/* <Menu
-          id="mobile-menu"
-          anchorEl={anchorElement}
-          open={isOpen}
-          MenuListProps={{ 'aria-labelledby': 'mobile-button' }}
-          onClose={handleClose}>
-          <MenuItem>Brand List</MenuItem>
-          <MenuItem>Latest</MenuItem>
-          <MenuItem>Top by interest</MenuItem>
-          <MenuItem>Top by fans</MenuItem>
-        </Menu> */}
-        {/* mobile menu ends */}
       </Toolbar>
     </AppBar>
   )

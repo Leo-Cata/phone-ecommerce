@@ -13,7 +13,10 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
   return (
     <Box>
       {specifications.map((specifications, index) => (
-        <Accordion key={specifications.title} elevation={4}>
+        <Accordion
+          key={specifications.title}
+          elevation={4}
+          className="bg-custom-primary">
           <AccordionSummary
             expandIcon={<AddIcon />}
             aria-controls={`panel${index}a-content`}

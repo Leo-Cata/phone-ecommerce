@@ -31,7 +31,7 @@ const PhoneSpecsContainer = () => {
   return (
     <>
       {phoneSpecifications && (
-        <Paper className="w-full">
+        <Paper className="w-full bg-custom-secondary">
           <Stack spacing={2} className="p-4">
             <Typography variant="h3" textAlign={'center'}>
               {phoneSpecifications.brand} {''} {phoneSpecifications.phone_name}

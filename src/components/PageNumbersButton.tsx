@@ -13,13 +13,13 @@ const PageNumbersButtons = ({
   )
 
   return (
-    <ButtonGroup aria-label="page number">
+    <ButtonGroup aria-label="page number" className="bg-custom-secondary ">
       {pageNumbers.map((pageNumber) => (
         <Button
           onClick={() => handlePage(pageNumber)}
           key={pageNumber}
           value={pageNumber}
-          className={page === pageNumber ? 'bg-[#1C2125]' : ''}
+          className={page === pageNumber ? 'bg-custom-primary ' : ''}
           aria-label={`page number ${pageNumber}`}>
           {pageNumber}
         </Button>

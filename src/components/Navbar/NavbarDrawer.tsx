@@ -25,8 +25,8 @@ const NavbarDrawer = () => {
       <Drawer
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
-        anchor="right">
-        <List className="space-y-10">
+        anchor="top">
+        <List className=" bg-custom-secondary">
           <ListItem onClick={handleClose}>
             <ListItemButton LinkComponent={'a'}>
               <Link to={'/'}>Brand List</Link>

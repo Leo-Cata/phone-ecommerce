@@ -43,12 +43,16 @@ const PhoneListContainer = () => {
 
   return (
     <>
-      {brandsPhones && <PhoneCards brandsPhones={brandsPhones} />}
-      <PageNumbersButtons
-        handlePage={handlePage}
-        numberOfPages={numberOfPages}
-        page={page}
-      />
+      {brandsPhones && (
+        <>
+          <PhoneCards brandsPhones={brandsPhones} />
+          <PageNumbersButtons
+            handlePage={handlePage}
+            numberOfPages={numberOfPages}
+            page={page}
+          />
+        </>
+      )}
     </>
   )
 }
