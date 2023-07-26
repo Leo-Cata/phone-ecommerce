@@ -39,37 +39,36 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
 
   return (
     <Grid container>
-      {phoneBrands &&
-        phoneBrands.map((brand, index) => (
-          <Grid key={brand.brand_id} item xs={12} sm={6} md={4} lg={3} xl={3}>
-            <Link to={`/brands/${brand.brand_slug}`}>
-              <Card className="m-2 px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
-                {phoneImages ? (
-                  <CardMedia
-                    component="img"
-                    image={phoneImages ? phoneImages[index] : ''}
-                    alt={`${brand.brand_name} phone image`}
-                    className="mt-2 h-[270px] min-w-[220px] object-contain"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="mt-2 flex h-[270px] min-w-[220px] items-center justify-center">
-                    <CircularProgress />
-                  </div>
-                )}
+      {phoneBrands?.map((brand, index) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={brand.brand_id}>
+          <Link to={`/brands/${brand.brand_slug}`}>
+            <Card className="m-2 px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
+              {phoneImages ? (
+                <CardMedia
+                  component="img"
+                  image={phoneImages ? phoneImages[index] : ''}
+                  alt={`${brand.brand_name} phone image`}
+                  className="mt-2 h-[270px] min-w-[220px] object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="mt-2 flex h-[270px] min-w-[220px] items-center justify-center">
+                  <CircularProgress />
+                </div>
+              )}
 
-                <CardContent>
-                  <Typography variant="h5" className="text-center">
-                    {brand.brand_name}
-                  </Typography>
-                  <Typography variant="body2">
-                    Available Devices {brand.device_count}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Link>
-          </Grid>
-        ))}
+              <CardContent>
+                <Typography variant="h5" className="text-center">
+                  {brand.brand_name}
+                </Typography>
+                <Typography variant="body2">
+                  Available Devices {brand.device_count}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Link>
+        </Grid>
+      ))}
     </Grid>
   )
 }
