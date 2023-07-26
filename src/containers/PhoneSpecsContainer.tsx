@@ -42,7 +42,7 @@ const PhoneSpecsContainer = () => {
             <img
               src={phoneSpecifications.phone_images[1]}
               alt={`${phoneSpecifications.phone_name} image`}
-              className="flex min-w-[310px] max-w-[410px] self-center"
+              className="flex min-w-[310px] max-w-[410px] self-center object-contain"
             />
             <Divider />
 

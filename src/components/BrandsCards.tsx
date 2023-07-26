@@ -1,7 +1,6 @@
 import {
   Grid,
   Card,
-  CardMedia,
   CardContent,
   Typography,
   CircularProgress,
@@ -10,6 +9,7 @@ import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
 import { Link } from 'react-router-dom'
+import CardMediaComponent from './CardMediaComponent'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
@@ -44,12 +44,9 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
           <Link to={`/brands/${brand.brand_slug}`}>
             <Card className="m-2 px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
               {phoneImages ? (
-                <CardMedia
-                  component="img"
-                  image={phoneImages ? phoneImages[index] : ''}
+                <CardMediaComponent
+                  image={phoneImages[index]}
                   alt={`${brand.brand_name} phone image`}
-                  className="mt-2 h-[270px] min-w-[220px] object-contain"
-                  loading="lazy"
                 />
               ) : (
                 <div className="mt-2 flex h-[270px] min-w-[220px] items-center justify-center">

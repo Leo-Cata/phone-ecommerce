@@ -68,3 +68,8 @@ export interface BasicInfoProps {
 export type WrapperProps = {
   children: ReactNode
 }
+
+export type CardMediaProps = {
+  image: string
+  alt: string
+}

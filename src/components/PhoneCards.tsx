@@ -1,6 +1,7 @@
-import { Grid, Card, CardMedia, Typography, CardContent } from '@mui/material'
+import { Grid, Card, Typography, CardContent } from '@mui/material'
 import { Phones } from '../types/types'
 import { Link } from 'react-router-dom'
+import CardMediaComponent from './CardMediaComponent'
 
 const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
   console.log(brandsPhones)
@@ -10,11 +11,9 @@ const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
         <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={phone.phone_name}>
           <Link to={`/${phone.slug}`}>
             <Card className="m-2  px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
-              <CardMedia
-                component="img"
+              <CardMediaComponent
                 image={phone.image}
-                className="mt-2 h-[270px] min-w-[220px] object-contain"
-                loading="lazy"
+                alt={`${phone.phone_name} image`}
               />
               <CardContent className="px-0">
                 <Typography textAlign={'center'} variant="h5">
