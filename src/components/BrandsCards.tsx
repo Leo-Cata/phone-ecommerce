@@ -1,15 +1,10 @@
-import {
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  CircularProgress,
-} from '@mui/material'
+import { Grid, CardContent, Typography, CircularProgress } from '@mui/material'
 import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
 import { Link } from 'react-router-dom'
 import CardMediaComponent from './CardMediaComponent'
+import CardComponent from './CardComponent'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
@@ -42,7 +37,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
       {phoneBrands?.map((brand, index) => (
         <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={brand.brand_id}>
           <Link to={`/brands/${brand.brand_slug}`}>
-            <Card className="m-2 px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-[#333333]">
+            <CardComponent>
               {phoneImages ? (
                 <CardMediaComponent
                   image={phoneImages[index]}
@@ -62,7 +57,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
                   Available Devices {brand.device_count}
                 </Typography>
               </CardContent>
-            </Card>
+            </CardComponent>
           </Link>
         </Grid>
       ))}

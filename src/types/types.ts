@@ -65,7 +65,7 @@ export interface BasicInfoProps {
   release: string
 }
 
-export type WrapperProps = {
+export type ChildrenProp = {
   children: ReactNode
 }
 
