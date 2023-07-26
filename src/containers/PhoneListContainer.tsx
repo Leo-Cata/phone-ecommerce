@@ -3,7 +3,6 @@ import { useParams } from 'react-router'
 import { getBrandBySlug } from '../services/phoneApi'
 import { BrandsPhoneList, Phones } from '../types/types'
 import { AxiosResponse } from 'axios'
-import { Stack } from '@mui/material'
 import PhoneCards from '../components/PhoneCards'
 import PageNumbersButtons from '../components/PageNumbersButton'
 
@@ -44,14 +43,14 @@ const PhoneListContainer = () => {
   }
 
   return (
-    <Stack className=" m-4 sm:mx-40 sm:my-10" alignItems={'center'} spacing={2}>
+    <>
       {brandsPhones && <PhoneCards brandsPhones={brandsPhones} />}
       <PageNumbersButtons
         handlePage={handlePage}
         numberOfPages={numberOfPages}
         page={page}
       />
-    </Stack>
+    </>
   )
 }
 

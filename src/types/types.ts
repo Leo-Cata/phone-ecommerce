@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface PhoneBrands {
   brand_id: number
   brand_name: string
@@ -61,4 +63,8 @@ export interface BasicInfoProps {
   storage: string
   dimension: string
   release: string
+}
+
+export type WrapperProps = {
+  children: ReactNode
 }

@@ -31,7 +31,7 @@ const PhoneSpecsContainer = () => {
   }, [phoneSlug])
   console.log(typeof phoneSpecifications?.os)
   return (
-    <Stack className="m-4 2xl:mx-40 2xl:my-10" alignItems={'center'}>
+    <>
       {phoneSpecifications && (
         <Paper className="w-full">
           <Stack spacing={2} className="p-4">
@@ -61,7 +61,7 @@ const PhoneSpecsContainer = () => {
           </Stack>
         </Paper>
       )}
-    </Stack>
+    </>
   )
 }
 
