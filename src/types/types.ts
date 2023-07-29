@@ -73,3 +73,14 @@ export type CardMediaProps = {
   image: string
   alt: string
 }
+
+export interface LatestPhones {
+  phone_name: string
+  slug: string
+  image: string
+  detail: string
+}
+
+export interface LatestPhonesCardsProps {
+  latestPhones: LatestPhones[]
+}
