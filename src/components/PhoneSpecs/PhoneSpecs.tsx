@@ -35,7 +35,9 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
 
                 {/* map the values to display when theres more than 1 */}
                 {specs.val.map((values) => (
-                  <Typography variant="subtitle2">{values}</Typography>
+                  <Typography variant="subtitle2" key={values}>
+                    {values}
+                  </Typography>
                 ))}
               </Box>
             </AccordionDetails>
