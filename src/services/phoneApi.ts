@@ -25,3 +25,6 @@ export const getBrandBySlug = (brandSlug: string, page?: number) =>
       page: page ? page.toString() : undefined,
     },
   })
+
+//fetch latest phones
+export const getLatestPhones = () => api.get('/latest')
