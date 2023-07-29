@@ -38,7 +38,7 @@ const PhoneSpecsContainer = () => {
             </Typography>
 
             <img
-              src={phoneSpecifications.phone_images[1]}
+              src={phoneSpecifications.phone_images[0]}
               alt={`${phoneSpecifications.phone_name} image`}
               className="flex w-full min-w-[220px] max-w-[500px] self-center rounded-lg object-contain"
             />

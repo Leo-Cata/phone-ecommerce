@@ -14,7 +14,7 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
     <Box>
       {specifications.map((specifications, index) => (
         <Accordion
-          key={specifications.title}
+          key={specifications.title && index}
           elevation={4}
           className="bg-custom-primary">
           <AccordionSummary
