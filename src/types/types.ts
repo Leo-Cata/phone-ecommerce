@@ -65,15 +65,17 @@ export interface BasicInfoProps {
   release: string
 }
 
+//react children prop
 export type ChildrenProp = {
   children: ReactNode
 }
-
+//card media component types
 export type CardMediaProps = {
   image: string
   alt: string
 }
 
+//latest phones fetch data type
 export interface LatestPhones {
   phone_name: string
   slug: string
@@ -81,6 +83,29 @@ export interface LatestPhones {
   detail: string
 }
 
+//latest phones cards props
 export interface LatestPhonesCardsProps {
   latestPhones: LatestPhones[]
+}
+
+//top by interest fetch data type
+export interface ByInterest {
+  phone_name: string
+  slug: string
+  hits: number
+  detail: string
+}
+
+export interface ByInterestCardsProps {
+  byInterestPhones: ByInterest[]
+}
+
+//custom card type
+export interface CustomCardProps {
+  customKey: string
+  linkTo: string
+  image: string
+  alt: string
+  title: string
+  text: string | number | null
 }
