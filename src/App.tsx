@@ -14,10 +14,10 @@ const App = () => {
       <Navbar />
       <WrapperContainer>
         <Routes>
-          <Route path="/" element={<BrandsCardsContainer />} />
+          <Route path="/" element={<LatestContainer />} />
+          <Route path="/brands" element={<BrandsCardsContainer />} />
           <Route path="/brands/:brandSlug" element={<PhoneListContainer />} />
           <Route path="/:phoneSlug" element={<PhoneSpecsContainer />} />
-          <Route path="/latest" element={<LatestContainer />} />
           <Route path="/interest" element={<TopByInterest />} />
           <Route path="/fans" element={<TopByFans />} />
         </Routes>
