@@ -96,6 +96,10 @@ export interface ByInterest {
   detail: string
 }
 
+export interface ByInterestCardsProps {
+  byInterestPhones: ByInterest[]
+}
+
 //custom card type
 export interface CustomCardProps {
   customKey: string

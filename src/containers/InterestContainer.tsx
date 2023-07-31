@@ -18,11 +18,12 @@ const InterestContainer = () => {
     fetchByInterest()
   }, [])
 
-  console.log(byInterestPhones)
   return (
-    <div>
-      <TopByInterest />
-    </div>
+    <>
+      {byInterestPhones && (
+        <TopByInterest byInterestPhones={byInterestPhones} />
+      )}
+    </>
   )
 }
 
