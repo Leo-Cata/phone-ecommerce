@@ -1,7 +1,6 @@
 import BrandsCardsContainer from './containers/BrandsCardsContainer'
 import Navbar from './components/Navbar/Navbar'
 import { Route, Routes } from 'react-router'
-import TopByInterest from './components/TopByInterest'
 import TopByFans from './components/TopByFans'
 import PhoneListContainer from './containers/PhoneListContainer'
 import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
