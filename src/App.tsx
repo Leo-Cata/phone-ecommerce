@@ -7,6 +7,7 @@ import PhoneListContainer from './containers/PhoneListContainer'
 import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
 import WrapperContainer from './containers/Wrapper'
 import LatestContainer from './containers/LatestContainer'
+import InterestContainer from './containers/InterestContainer'
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/brands" element={<BrandsCardsContainer />} />
           <Route path="/brands/:brandSlug" element={<PhoneListContainer />} />
           <Route path="/:phoneSlug" element={<PhoneSpecsContainer />} />
-          <Route path="/interest" element={<TopByInterest />} />
+          <Route path="/interest" element={<InterestContainer />} />
           <Route path="/fans" element={<TopByFans />} />
         </Routes>
       </WrapperContainer>

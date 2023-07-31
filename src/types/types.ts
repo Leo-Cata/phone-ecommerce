@@ -84,3 +84,10 @@ export interface LatestPhones {
 export interface LatestPhonesCardsProps {
   latestPhones: LatestPhones[]
 }
+
+export interface ByInterest {
+  phone_name: string
+  slug: string
+  hits: number
+  detail: string
+}

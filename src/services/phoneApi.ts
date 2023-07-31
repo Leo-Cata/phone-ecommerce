@@ -28,3 +28,6 @@ export const getBrandBySlug = (brandSlug: string, page?: number) =>
 
 //fetch latest phones
 export const getLatestPhones = () => api.get('/latest')
+
+//fetch by interest
+export const getByInterest = () => api.get('/top-by-interest')
