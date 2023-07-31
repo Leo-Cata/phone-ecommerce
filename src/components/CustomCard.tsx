@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom'
 import CardComponent from './CardComponent'
 import CardMediaComponent from './CardMediaComponent'
 import { CardContent, Typography } from '@mui/material'
+import { CustomCardProps } from '../types/types'
 
-const CustomCard = ({ key, linkTo, mediaImg, alt, title, text }: any) => {
+const CustomCard = ({
+  customKey,
+  linkTo,
+  image,
+  alt,
+  title,
+  text,
+}: CustomCardProps) => {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={key}>
+    <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={customKey}>
       <Link to={linkTo}>
         <CardComponent>
-          <CardMediaComponent image={mediaImg} alt={`${alt} image`} />
+          <CardMediaComponent image={image} alt={`${alt} image`} />
           <CardContent className="px-1">
             <Typography textAlign={'center'} variant="h5">
               {title}
