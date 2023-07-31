@@ -1,8 +1,7 @@
 import Grid from '@mui/material/Grid'
 import { Link } from 'react-router-dom'
-import CardComponent from './CardComponent'
 import CardMediaComponent from './CardMediaComponent'
-import { CardContent, Typography } from '@mui/material'
+import { Card, CardContent, Typography } from '@mui/material'
 import { CustomCardProps } from '../types/types'
 
 const CustomCard = ({
@@ -16,7 +15,7 @@ const CustomCard = ({
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={customKey}>
       <Link to={linkTo}>
-        <CardComponent>
+        <Card className="m-2 bg-custom-secondary px-2 transition hover:scale-105 hover:cursor-pointer hover:bg-custom-accent">
           <CardMediaComponent image={image} alt={`${alt} image`} />
           <CardContent className="px-1">
             <Typography textAlign={'center'} variant="h5">
@@ -24,7 +23,7 @@ const CustomCard = ({
             </Typography>
             {text && <Typography variant="body2">{text}</Typography>}
           </CardContent>
-        </CardComponent>
+        </Card>
       </Link>
     </Grid>
   )
