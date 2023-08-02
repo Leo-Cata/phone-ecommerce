@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { ByInterestType } from '../types/types'
 import { getByInterest } from '../services/phoneApi'
-import ByInterest from '../components/TopByInterest'
+import PhonesAndRatings from '../components/PhonesAndRatings'
+import { Box } from '@mui/material'
 
 const InterestContainer = () => {
   const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
@@ -19,9 +20,17 @@ const InterestContainer = () => {
   }, [])
 
   return (
-    <>
-      {byInterestPhones && <ByInterest byInterestPhones={byInterestPhones} />}
-    </>
+    <Box>
+      {byInterestPhones &&
+        byInterestPhones.map((phone) => (
+          <PhonesAndRatings
+            firstText={phone.phone_name}
+            SecondText={phone.hits}
+            slug={phone.slug}
+            customKey={phone.slug}
+          />
+        ))}
+    </Box>
   )
 }
 
