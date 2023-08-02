@@ -21,7 +21,7 @@ const CustomCard = ({
             <Typography textAlign={'center'} variant="h5">
               {title}
             </Typography>
-            {text && <Typography variant="body2">{text}</Typography>}
+            {text && <Typography variant="body1">{text}</Typography>}
           </CardContent>
         </Card>
       </Link>
