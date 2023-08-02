@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { ByInterest } from '../types/types'
+import { ByInterestType } from '../types/types'
 import { getByInterest } from '../services/phoneApi'
-import TopByInterest from '../components/TopByInterest'
+import ByInterest from '../components/TopByInterest'
 
 const InterestContainer = () => {
-  const [byInterestPhones, setByInterestPhones] = useState<ByInterest[]>()
+  const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
 
   useEffect(() => {
     const fetchByInterest = async () => {
@@ -20,9 +20,7 @@ const InterestContainer = () => {
 
   return (
     <>
-      {byInterestPhones && (
-        <TopByInterest byInterestPhones={byInterestPhones} />
-      )}
+      {byInterestPhones && <ByInterest byInterestPhones={byInterestPhones} />}
     </>
   )
 }

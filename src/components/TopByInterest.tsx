@@ -1,22 +1,21 @@
-import Grid from '@mui/material/Grid'
 import { ByInterestCardsProps } from '../types/types'
-import CustomCard from './CustomCard'
+import { Box } from '@mui/material'
+import PhonesAndRatings from './PhonesAndRatings'
+// import CustomCard from './CustomCard'
 
-const TopByInterest = ({ byInterestPhones }: ByInterestCardsProps) => {
+const ByInterest = ({ byInterestPhones }: ByInterestCardsProps) => {
   return (
-    <Grid container>
-      {byInterestPhones.map((phone) => (
-        <CustomCard
-          customKey={phone.slug}
-          linkTo={`/${phone.slug}`}
-          image={phone.phone_name}
-          alt={phone.phone_name}
-          title={phone.phone_name}
-          text={phone.hits}
+    <Box>
+      {byInterestPhones.map((phone, index) => (
+        <PhonesAndRatings
+          firstText={phone.phone_name}
+          SecondText={phone.hits}
+          slug={phone.slug}
+          customKey={phone.slug + index}
         />
       ))}
-    </Grid>
+    </Box>
   )
 }
 
-export default TopByInterest
+export default ByInterest

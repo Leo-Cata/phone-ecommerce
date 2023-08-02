@@ -7,12 +7,14 @@ import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
 import WrapperContainer from './containers/Wrapper'
 import LatestContainer from './containers/LatestContainer'
 import InterestContainer from './containers/InterestContainer'
+// import ByRatingsPhones from './components/ByRatingsPhones'
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <WrapperContainer>
+        <InterestContainer />
         <Routes>
           <Route path="/" element={<LatestContainer />} />
           <Route path="/brands" element={<BrandsCardsContainer />} />
