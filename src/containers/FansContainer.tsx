@@ -18,7 +18,6 @@ const FansContainer = () => {
     }
     fetchByFans()
   }, [])
-  console.log(byFansPhones)
   return (
     <Box>
       {byFansPhones &&
