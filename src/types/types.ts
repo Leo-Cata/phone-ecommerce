@@ -89,11 +89,18 @@ export interface LatestPhonesCardsProps {
 }
 
 //top by interest fetch data type
-export interface ByInterestType {
+export interface BaseRatings {
   phone_name: string
   slug: string
-  hits: number
   detail: string
+}
+
+export type ByInterestType = BaseRatings & {
+  hits: number
+}
+
+export type ByFansType = BaseRatings & {
+  favorites: number
 }
 
 export interface ByInterestCardsProps {
