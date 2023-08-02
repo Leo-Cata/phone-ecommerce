@@ -31,3 +31,5 @@ export const getLatestPhones = () => api.get('/latest')
 
 //fetch by interest
 export const getByInterest = () => api.get('/top-by-interest')
+
+export const getByFans = () => api.get('/top-by-fans')

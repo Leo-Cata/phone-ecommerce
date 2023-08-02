@@ -1,14 +1,17 @@
 import BrandsCardsContainer from './containers/BrandsCardsContainer'
 import Navbar from './components/Navbar/Navbar'
-import { Route, Routes } from 'react-router'
-import TopByFans from './components/TopByFans'
+import { Route, Routes, useLocation } from 'react-router'
 import PhoneListContainer from './containers/PhoneListContainer'
 import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
 import WrapperContainer from './containers/Wrapper'
 import LatestContainer from './containers/LatestContainer'
-import InterestContainer from './containers/InterestContainer'
+import FansAndInterest from './components/FansAndInterest'
 
 const App = () => {
+  const location = useLocation()
+  const isDefaultOrBrands =
+    location.pathname === '/' || location.pathname === '/brands'
+
   return (
     <div>
       <Navbar />
@@ -18,9 +21,8 @@ const App = () => {
           <Route path="/brands" element={<BrandsCardsContainer />} />
           <Route path="/brands/:brandSlug" element={<PhoneListContainer />} />
           <Route path="/:phoneSlug" element={<PhoneSpecsContainer />} />
-          <Route path="/interest" element={<InterestContainer />} />
-          <Route path="/fans" element={<TopByFans />} />
         </Routes>
+        {isDefaultOrBrands && <FansAndInterest />}
       </WrapperContainer>
     </div>
   )

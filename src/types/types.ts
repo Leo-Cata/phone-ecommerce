@@ -89,15 +89,22 @@ export interface LatestPhonesCardsProps {
 }
 
 //top by interest fetch data type
-export interface ByInterest {
+export interface BaseRatings {
   phone_name: string
   slug: string
-  hits: number
   detail: string
 }
 
+export type ByInterestType = BaseRatings & {
+  hits: number
+}
+
+export type ByFansType = BaseRatings & {
+  favorites: number
+}
+
 export interface ByInterestCardsProps {
-  byInterestPhones: ByInterest[]
+  byInterestPhones: ByInterestType[]
 }
 
 //custom card type
@@ -108,4 +115,12 @@ export interface CustomCardProps {
   alt: string
   title: string
   text: string | number | null
+}
+
+//type for the by fans and by interest container
+export interface RatingsProps {
+  firstText: string
+  SecondText: number
+  slug: string
+  customKey: string
 }

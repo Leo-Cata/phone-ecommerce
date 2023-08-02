@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { ByInterest } from '../types/types'
+import { ByInterestType } from '../types/types'
 import { getByInterest } from '../services/phoneApi'
-import TopByInterest from '../components/TopByInterest'
+import PhonesAndRatings from '../components/PhonesAndRatings'
+import { Box, Typography } from '@mui/material'
 
 const InterestContainer = () => {
-  const [byInterestPhones, setByInterestPhones] = useState<ByInterest[]>()
+  const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
 
   useEffect(() => {
     const fetchByInterest = async () => {
@@ -19,11 +20,20 @@ const InterestContainer = () => {
   }, [])
 
   return (
-    <>
-      {byInterestPhones && (
-        <TopByInterest byInterestPhones={byInterestPhones} />
-      )}
-    </>
+    <Box className="w-fit">
+      <Typography textAlign={'center'} variant="h5" className="mb-2 lg:mb-4">
+        Top Phones By Interest
+      </Typography>
+      {byInterestPhones &&
+        byInterestPhones.map((phone) => (
+          <PhonesAndRatings
+            firstText={phone.phone_name}
+            SecondText={phone.hits}
+            slug={phone.slug}
+            customKey={phone.slug}
+          />
+        ))}
+    </Box>
   )
 }
 
