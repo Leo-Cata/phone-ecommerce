@@ -3,7 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import { Route, Routes, useLocation } from 'react-router'
 import PhoneListContainer from './containers/PhoneListContainer'
 import PhoneSpecsContainer from './containers/PhoneSpecsContainer'
-import WrapperContainer from './containers/Wrapper'
+import WrapperContainer from './containers/WrapperContainer'
 import LatestContainer from './containers/LatestContainer'
 import FansAndInterest from './components/FansAndInterest'
 

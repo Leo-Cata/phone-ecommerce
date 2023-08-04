@@ -3,6 +3,7 @@ import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
 import CustomCard from './CustomCard'
+import CustomCardsSkeleton from './CustomCardsSkeleton'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
@@ -32,8 +33,8 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
 
   return (
     <Grid container>
-      {phoneImages &&
-        phoneBrands?.map((brand, index) => (
+      {phoneImages ? (
+        phoneBrands.map((brand, index) => (
           <CustomCard
             customKey={brand.brand_slug}
             linkTo={`/brands/${brand.brand_slug}`}
@@ -42,7 +43,10 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
             title={brand.brand_name}
             text={`Available Devices ${brand.device_count}`}
           />
-        ))}
+        ))
+      ) : (
+        <CustomCardsSkeleton />
+      )}
     </Grid>
   )
 }
