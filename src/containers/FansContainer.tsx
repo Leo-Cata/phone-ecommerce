@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ByFansType } from '../types/types'
 import { getByFans } from '../services/phoneApi'
 import PhonesAndRatings from '../components/PhonesAndRatings'
+import CustomTextSkeleton from '../components/CustomTextSkeleton'
 
 const FansContainer = () => {
   const [byFansPhones, setByFansPhones] = useState<ByFansType[]>()
@@ -23,7 +24,7 @@ const FansContainer = () => {
       <Typography textAlign={'center'} variant="h5" className="mb-2 lg:mb-4">
         Top Phones By Fans
       </Typography>
-      {byFansPhones &&
+      {byFansPhones ? (
         byFansPhones.map((phone) => (
           <PhonesAndRatings
             firstText={phone.phone_name}
@@ -31,7 +32,10 @@ const FansContainer = () => {
             customKey={phone.detail}
             slug={phone.slug}
           />
-        ))}
+        ))
+      ) : (
+        <CustomTextSkeleton />
+      )}
     </Box>
   )
 }

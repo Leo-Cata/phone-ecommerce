@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
 import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
-import CustomSkeleton from '../components/CustomSkeleton'
+import CustomCardsSkeleton from '../components/CustomCardsSkeleton'
 
 const BrandsCardsContainer = () => {
   const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
@@ -25,7 +25,7 @@ const BrandsCardsContainer = () => {
       {phoneBrands ? (
         <BrandsCards phoneBrands={phoneBrands} />
       ) : (
-        <CustomSkeleton />
+        <CustomCardsSkeleton />
       )}
     </>
   )

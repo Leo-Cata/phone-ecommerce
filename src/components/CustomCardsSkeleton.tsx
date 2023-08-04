@@ -1,6 +1,6 @@
 import { Skeleton, Grid } from '@mui/material'
 
-const CustomSkeleton = () => {
+const CustomCardsSkeleton = () => {
   return (
     <>
       {Array.from({ length: 40 }, (_, index) => (
@@ -20,4 +20,4 @@ const CustomSkeleton = () => {
   )
 }
 
-export default CustomSkeleton
+export default CustomCardsSkeleton

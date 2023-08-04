@@ -3,7 +3,7 @@ import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
 import CustomCard from './CustomCard'
-import CustomSkeleton from './CustomSkeleton'
+import CustomCardsSkeleton from './CustomCardsSkeleton'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
@@ -45,7 +45,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
           />
         ))
       ) : (
-        <CustomSkeleton />
+        <CustomCardsSkeleton />
       )}
     </Grid>
   )

@@ -3,6 +3,7 @@ import { ByInterestType } from '../types/types'
 import { getByInterest } from '../services/phoneApi'
 import PhonesAndRatings from '../components/PhonesAndRatings'
 import { Box, Typography } from '@mui/material'
+import CustomTextSkeleton from '../components/CustomTextSkeleton'
 
 const InterestContainer = () => {
   const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
@@ -24,7 +25,7 @@ const InterestContainer = () => {
       <Typography textAlign={'center'} variant="h5" className="mb-2 lg:mb-4">
         Top Phones By Interest
       </Typography>
-      {byInterestPhones &&
+      {byInterestPhones ? (
         byInterestPhones.map((phone) => (
           <PhonesAndRatings
             firstText={phone.phone_name}
@@ -32,7 +33,10 @@ const InterestContainer = () => {
             slug={phone.slug}
             customKey={phone.slug}
           />
-        ))}
+        ))
+      ) : (
+        <CustomTextSkeleton />
+      )}
     </Box>
   )
 }
