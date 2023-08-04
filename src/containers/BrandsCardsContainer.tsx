@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
 import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
+import CustomSkeleton from '../components/CustomSkeleton'
 
 const BrandsCardsContainer = () => {
   const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
@@ -19,7 +20,15 @@ const BrandsCardsContainer = () => {
     fetchBrands()
   }, [])
 
-  return <>{phoneBrands && <BrandsCards phoneBrands={phoneBrands} />}</>
+  return (
+    <>
+      {phoneBrands ? (
+        <BrandsCards phoneBrands={phoneBrands} />
+      ) : (
+        <CustomSkeleton />
+      )}
+    </>
+  )
 }
 
 export default BrandsCardsContainer
