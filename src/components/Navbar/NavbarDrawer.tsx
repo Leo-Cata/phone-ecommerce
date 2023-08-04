@@ -6,7 +6,12 @@ import {
   List,
   ListItem,
   ListItemButton,
+  Stack,
+  Typography,
 } from '@mui/material'
+import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded'
+import CloseIcon from '@mui/icons-material/Close'
+
 import { Link } from 'react-router-dom'
 
 const NavbarDrawer = () => {
@@ -18,7 +23,7 @@ const NavbarDrawer = () => {
       <IconButton
         onClick={() => setIsDrawerOpen(true)}
         color="inherit"
-        className="block md:hidden"
+        className="block"
         size="small">
         <MenuIcon />
       </IconButton>
@@ -27,24 +32,35 @@ const NavbarDrawer = () => {
         onClose={() => setIsDrawerOpen(false)}
         anchor="top">
         <List className=" bg-custom-secondary">
+          <ListItem>
+            <Link
+              to={'/'}
+              className="flex w-full flex-row justify-between space-x-4">
+              <Stack direction={'row'} spacing={1}>
+                <ListItemButton
+                  className="h-[30px] min-w-[24px] p-0"
+                  disableGutters>
+                  <EdgesensorHighRoundedIcon />
+                </ListItemButton>
+                <Typography variant="h6">Phone E-commerce</Typography>
+              </Stack>
+              <ListItemButton
+                className="flex-grow-0"
+                disableGutters
+                onClick={() => setIsDrawerOpen(false)}>
+                <CloseIcon />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+
           <ListItem onClick={handleClose}>
             <ListItemButton LinkComponent={'a'}>
-              <Link to={'/'}>Brand List</Link>
+              <Link to={'/'}>Latest Phones</Link>
             </ListItemButton>
           </ListItem>
           <ListItem onClick={handleClose}>
             <ListItemButton LinkComponent={'a'}>
-              <Link to={'/latest'}>Latest</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem onClick={handleClose}>
-            <ListItemButton LinkComponent={'a'}>
-              <Link to={'/interest'}>Top by interest</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem onClick={handleClose}>
-            <ListItemButton LinkComponent={'a'}>
-              <Link to={'/fans'}>Top by fans</Link>
+              <Link to={'/brands'}>Phone Brands</Link>
             </ListItemButton>
           </ListItem>
         </List>
