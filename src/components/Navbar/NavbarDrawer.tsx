@@ -8,6 +8,7 @@ import {
   ListItemButton,
   Stack,
   Typography,
+  Divider,
 } from '@mui/material'
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded'
 import CloseIcon from '@mui/icons-material/Close'
@@ -45,14 +46,14 @@ const NavbarDrawer = () => {
                 <Typography variant="h6">Phone E-commerce</Typography>
               </Stack>
               <ListItemButton
-                className="flex-grow-0"
+                className="h-[30px] flex-grow-0"
                 disableGutters
                 onClick={() => setIsDrawerOpen(false)}>
                 <CloseIcon />
               </ListItemButton>
             </Link>
           </ListItem>
-
+          <Divider />
           <ListItem onClick={handleClose}>
             <ListItemButton LinkComponent={'a'}>
               <Link to={'/'}>Latest Phones</Link>
