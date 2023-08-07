@@ -24,7 +24,7 @@ const NavbarDrawer = () => {
       <IconButton
         onClick={() => setIsDrawerOpen(true)}
         color="inherit"
-        className="block"
+        className="block rounded md:hidden"
         size="small">
         <MenuIcon />
       </IconButton>
@@ -45,12 +45,12 @@ const NavbarDrawer = () => {
                 </ListItemButton>
                 <Typography variant="h6">Phone E-commerce</Typography>
               </Stack>
-              <ListItemButton
-                className="h-[30px] flex-grow-0"
-                disableGutters
+              <IconButton
+                className="h-[30px] flex-grow-0 rounded"
+                size="small"
                 onClick={() => setIsDrawerOpen(false)}>
                 <CloseIcon />
-              </ListItemButton>
+              </IconButton>
             </Link>
           </ListItem>
           <Divider />
