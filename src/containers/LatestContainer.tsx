@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { LatestPhones } from '../types/types'
 import { getLatestPhones } from '../services/phoneApi'
 import LatestPhonesCards from '../components/LatestPhonesCards'
-import CustomSkeleton from '../components/CustomCardsSkeleton'
+import CustomSkeleton from '../components/Skeletons/CustomCardsSkeleton'
 import { Grid } from '@mui/material'
 
 const LatestContainer = () => {

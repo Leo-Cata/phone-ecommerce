@@ -5,6 +5,7 @@ import { PhoneSpecifications } from '../types/types'
 import { Stack, Paper, Typography, Divider } from '@mui/material'
 import BasicInfo from '../components/PhoneSpecs/BasicInfo'
 import PhoneSpecs from '../components/PhoneSpecs/PhoneSpecs'
+import PhoneSpecsSkeleton from '../components/Skeletons/PhoneSpecsSkeleton'
 
 const PhoneSpecsContainer = () => {
   //getting the slug from params
@@ -30,7 +31,7 @@ const PhoneSpecsContainer = () => {
   }, [phoneSlug])
   return (
     <>
-      {phoneSpecifications && (
+      {phoneSpecifications ?(
         <Paper className="w-full bg-custom-secondary">
           <Stack spacing={2} className="p-4">
             <Typography variant="h3" textAlign={'center'}>
@@ -58,7 +59,8 @@ const PhoneSpecsContainer = () => {
             <PhoneSpecs specifications={phoneSpecifications.specifications} />
           </Stack>
         </Paper>
-      )}
+      ): 
+      <PhoneSpecsSkeleton/>}
     </>
   )
 }

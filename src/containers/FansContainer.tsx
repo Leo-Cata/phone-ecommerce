@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ByFansType } from '../types/types'
 import { getByFans } from '../services/phoneApi'
 import PhonesAndRatings from '../components/PhonesAndRatings'
-import CustomTextSkeleton from '../components/CustomTextSkeleton'
+import CustomTextSkeleton from '../components/Skeletons/CustomTextSkeleton'
 
 const FansContainer = () => {
   const [byFansPhones, setByFansPhones] = useState<ByFansType[]>()

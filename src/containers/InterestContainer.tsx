@@ -3,7 +3,7 @@ import { ByInterestType } from '../types/types'
 import { getByInterest } from '../services/phoneApi'
 import PhonesAndRatings from '../components/PhonesAndRatings'
 import { Box, Typography } from '@mui/material'
-import CustomTextSkeleton from '../components/CustomTextSkeleton'
+import CustomTextSkeleton from '../components/Skeletons/CustomTextSkeleton'
 
 const InterestContainer = () => {
   const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
