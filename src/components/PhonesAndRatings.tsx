@@ -8,6 +8,7 @@ const PhonesAndRatings = ({
   customKey,
 }: RatingsProps) => {
   return (
+    // modular component to display links for phones liked by fans/interest
     <>
       <Link
         underline="none"

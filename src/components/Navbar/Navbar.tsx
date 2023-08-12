@@ -12,8 +12,10 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
+    // nav bar
     <AppBar position="static" className="bg-custom-secondary">
       <Toolbar>
+        {/* icon and app name starts */}
         <IconButton
           size="small"
           edge="start"
@@ -26,8 +28,9 @@ const Navbar = () => {
         <Typography variant="h6" className="flex-grow">
           <Link to={'/'}>Phone E-commerce</Link>
         </Typography>
+        {/* icon and app name ends */}
 
-        {/* links buttons */}
+        {/* links buttons starts*/}
         <Stack
           direction={'row'}
           spacing={2}
@@ -43,6 +46,7 @@ const Navbar = () => {
             </Link>
           </Button>
         </Stack>
+        {/* links buttons ends*/}
 
         {/* mobile menu */}
         <NavbarDrawer />

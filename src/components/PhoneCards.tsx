@@ -5,6 +5,7 @@ import CustomCard from './CustomCard'
 const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
   return (
     <Grid container>
+      {/* display phones in selected brand */}
       {brandsPhones.map((phone) => (
         <CustomCard
           customKey={phone.slug}

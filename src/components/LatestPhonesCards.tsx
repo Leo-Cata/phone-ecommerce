@@ -3,6 +3,7 @@ import { LatestPhonesCardsProps } from '../types/types'
 import CustomCard from './CustomCard'
 
 const LatestPhonesCards = ({ latestPhones }: LatestPhonesCardsProps) => {
+  // gets latest phones data and maps through them to display on cards
   return (
     <Grid container>
       {latestPhones.map((phone) => (

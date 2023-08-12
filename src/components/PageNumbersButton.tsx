@@ -13,6 +13,7 @@ const PageNumbersButtons = ({
   )
 
   return (
+    // whatever number of the page is on, makes it looks 'active'
     <ButtonGroup aria-label="page number" className="bg-custom-secondary ">
       {pageNumbers.map((pageNumber) => (
         <Button

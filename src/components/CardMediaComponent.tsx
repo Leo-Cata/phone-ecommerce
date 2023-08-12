@@ -2,6 +2,7 @@ import { CardMedia } from '@mui/material'
 import { CardMediaProps } from '../types/types'
 
 const CardMediaComponent = ({ image, alt }: CardMediaProps) => {
+  // modular card media which receives the img to display and the alt
   return (
     <CardMedia
       component="img"

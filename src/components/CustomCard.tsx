@@ -12,6 +12,7 @@ const CustomCard = ({
   title,
   text,
 }: CustomCardProps) => {
+  // custom card component that display phone img, name and other data utilized for latest, brands and brands phones
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={customKey}>
       <Link to={linkTo}>
