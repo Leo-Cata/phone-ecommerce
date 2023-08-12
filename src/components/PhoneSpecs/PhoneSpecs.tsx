@@ -10,8 +10,11 @@ import AddIcon from '@mui/icons-material/Add'
 import { PhoneSpecsProps } from '../../types/types'
 
 const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
+  // more in depth information about the phone is received through props
+
   return (
     <Box>
+      {/* maps and displays the titles with accordions */}
       {specifications.map((specifications, index) => (
         <Accordion
           key={specifications.title && index}
@@ -24,7 +27,7 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
             <Typography variant="h4">{specifications.title}</Typography>
           </AccordionSummary>
 
-          {/* map through the title of the specs */}
+          {/* each title contains keys and data to display, maps through them */}
           {specifications.specs.map((specs, specsIndex) => (
             <AccordionDetails key={specs.key && specsIndex}>
               <Box>
@@ -33,7 +36,7 @@ const PhoneSpecs = ({ specifications }: PhoneSpecsProps) => {
                 </Typography>
                 <Divider />
 
-                {/* map the values to display when theres more than 1 */}
+                {/* then map the values to display */}
                 {specs.val.map((values) => (
                   <Typography variant="subtitle2" key={values}>
                     {values}

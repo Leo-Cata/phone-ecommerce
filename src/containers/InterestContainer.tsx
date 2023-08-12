@@ -7,7 +7,9 @@ import CustomTextSkeleton from '../components/Skeletons/CustomTextSkeleton'
 
 const InterestContainer = () => {
   const [byInterestPhones, setByInterestPhones] = useState<ByInterestType[]>()
+  //saves the data to be later displayed
 
+  //fetches the data and ignores unnecessary paths
   useEffect(() => {
     const fetchByInterest = async () => {
       try {

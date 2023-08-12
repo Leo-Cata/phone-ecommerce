@@ -9,12 +9,12 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()
 
   useEffect(() => {
-    //from phoneBrands map through them and then same each brand slug in a new array
+    //from phoneBrands map through them and then save each brand slug in a new array
     const extractBrandSlugs = (Array: PhoneBrands[]): string[] =>
       Array.map((brand) => brand.brand_slug)
     const extractedSlugs = extractBrandSlugs(phoneBrands)
 
-    //we map through those brand slugs and for each one, fetch them, then return the image of the first element of each brand slug
+    //map through those brand slugs and for each one, fetch them, then return the image of the first element of each brand slug
     const fetchBrandsImgBySlug = async () => {
       try {
         const brandDataPromises = extractedSlugs.map(async (brandSlug) => {
@@ -33,6 +33,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
 
   return (
     <Grid container>
+      {/* if there are images, map through each of phone brands, else display a simple skeleton */}
       {phoneImages ? (
         phoneBrands.map((brand, index) => (
           <CustomCard

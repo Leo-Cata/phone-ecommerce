@@ -6,7 +6,9 @@ import CustomCardsSkeleton from '../components/Skeletons/CustomCardsSkeleton'
 
 const BrandsCardsContainer = () => {
   const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
+  // saves the data in state and later passes it
 
+  //fetches the brands, ignoring unnecessary path
   useEffect(() => {
     const fetchBrands = async () => {
       try {
@@ -20,6 +22,7 @@ const BrandsCardsContainer = () => {
     fetchBrands()
   }, [])
 
+  //if the data is loaded, displays it else load the skeleton
   return (
     <>
       {phoneBrands ? (
