@@ -3,7 +3,7 @@ import { PhoneBrands } from '../types/types'
 import { useEffect, useState } from 'react'
 import { getBrandBySlug } from '../services/phoneApi'
 import CustomCard from './CustomCard'
-import CustomCardsSkeleton from './CustomCardsSkeleton'
+import CustomCardsSkeleton from './Skeletons/CustomCardsSkeleton'
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   const [phoneImages, setPhoneImages] = useState<string[]>()

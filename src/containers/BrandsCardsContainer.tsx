@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getBrands } from '../services/phoneApi'
 import BrandsCards from '../components/BrandsCards'
 import { PhoneBrands } from '../types/types'
-import CustomCardsSkeleton from '../components/CustomCardsSkeleton'
+import CustomCardsSkeleton from '../components/Skeletons/CustomCardsSkeleton'
 
 const BrandsCardsContainer = () => {
   const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
