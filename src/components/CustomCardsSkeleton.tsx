@@ -1,6 +1,7 @@
 import { Skeleton, Grid } from '@mui/material'
 
 const CustomCardsSkeleton = () => {
+  // creates an empty array with 40 items to display as skeleton
   return (
     <>
       {Array.from({ length: 40 }, (_, index) => (

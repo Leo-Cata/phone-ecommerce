@@ -1,5 +1,7 @@
 import { Skeleton } from '@mui/material'
+
 const CustomTextSkeleton = () => {
+  //text skeleton for fans and interest section
   return (
     <>
       {Array.from({ length: 10 }, (_, index) => (
