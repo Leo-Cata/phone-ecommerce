@@ -74,7 +74,7 @@ const PhoneSpecsContainer = () => {
               <img
                 src={phoneSpecifications.phone_images[imageIndex]}
                 alt={`${phoneSpecifications.phone_name} image`}
-                className="h-[200px] w-full min-w-[220px] max-w-[500px] rounded-lg object-contain sm:h-[400px]"
+                className="h-[200px] w-full min-w-[220px] max-w-[500px] object-contain sm:h-[400px]"
               />
               <IconButton onClick={handleNextClick} aria-label="next">
                 <NavigateNextIcon />
