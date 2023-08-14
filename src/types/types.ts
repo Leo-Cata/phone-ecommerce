@@ -124,3 +124,8 @@ export interface RatingsProps {
   slug: string
   customKey: string
 }
+
+export interface PhoneImagesSliderProps {
+  phoneImages: string[];
+  phoneName: string;
+}
