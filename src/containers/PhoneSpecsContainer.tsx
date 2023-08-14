@@ -2,11 +2,11 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getPhoneSpecs } from "../services/phoneApi";
 import { PhoneSpecifications } from "../types/types";
-import { Stack, Paper, Typography, Divider, IconButton } from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { Stack, Paper, Typography, Divider } from "@mui/material";
 import BasicInfo from "../components/PhoneSpecs/BasicInfo";
 import PhoneSpecs from "../components/PhoneSpecs/PhoneSpecs";
 import PhoneSpecsSkeleton from "../components/Skeletons/PhoneSpecsSkeleton";
+import PhoneImagesSlider from "../components/PhoneSpecs/PhoneImagesSlider";
 
 const PhoneSpecsContainer = () => {
   //getting the slug from params
@@ -36,19 +36,6 @@ const PhoneSpecsContainer = () => {
     fetchPhoneSpecs();
   }, [phoneSlug]);
 
-  const [imageIndex, setImageIndex] = useState(0);
-  const phoneImages = phoneSpecifications?.phone_images || [];
-
-  const handleNextClick = () => {
-    const newIndex = (imageIndex + 1) % phoneImages.length;
-    setImageIndex(newIndex);
-  };
-
-  const handlePreviousClick = () => {
-    const newIndex = (imageIndex - 1 + phoneImages.length) % phoneImages.length;
-    setImageIndex(newIndex);
-  };
-
   return (
     <>
       {phoneSpecifications ? (
@@ -57,29 +44,11 @@ const PhoneSpecsContainer = () => {
             <Typography variant="h3" textAlign={"center"}>
               {phoneSpecifications.brand} {""} {phoneSpecifications.phone_name}
             </Typography>
-            <Stack
-              direction={"row"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              spacing={2}
-            >
-              <IconButton
-                aria-label="previous"
-                className="rotate-180 transform"
-                onClick={handlePreviousClick}
-              >
-                <NavigateNextIcon />
-              </IconButton>
 
-              <img
-                src={phoneSpecifications.phone_images[imageIndex]}
-                alt={`${phoneSpecifications.phone_name} image`}
-                className="h-[200px] w-full min-w-[220px] max-w-[500px] object-contain sm:h-[400px]"
-              />
-              <IconButton onClick={handleNextClick} aria-label="next">
-                <NavigateNextIcon />
-              </IconButton>
-            </Stack>
+            <PhoneImagesSlider
+              phoneImages={phoneSpecifications.phone_images}
+              phoneName={phoneSpecifications.phone_name}
+            />
 
             <Divider />
 
