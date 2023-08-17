@@ -9,10 +9,6 @@ const PhoneImagesSlider = ({
   phoneImages,
   phoneName,
 }: PhoneImagesSliderProps) => {
-  console.log(
-    "🚀 ~ file: PhoneImagesSlider.tsx:12 ~ phoneImages:",
-    phoneImages
-  );
   const [imageIndex, setImageIndex] = useState(0);
 
   //when pressing the button, update the index, if the index is equal to the length of the images, the reminder will be 0, wrapping around the array
