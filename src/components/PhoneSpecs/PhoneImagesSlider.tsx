@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Stack, IconButton, Box } from "@mui/material";
+import { Stack, IconButton, Box, Tooltip } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { PhoneImagesSliderProps } from "../../types/types";
 import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
+import DeviceUnknownIcon from "@mui/icons-material/DeviceUnknown";
 
 const PhoneImagesSlider = ({
   phoneImages,
@@ -25,27 +26,39 @@ const PhoneImagesSlider = ({
     <Box>
       <Stack
         direction={"row"}
-        justifyContent={"space-between"}
+        justifyContent={phoneImages.length ? "space-between" : "center"}
         alignItems={"center"}
         spacing={2}
       >
         <IconButton
           aria-label="previous"
-          className="rotate-180 transform"
+          className={`rotate-180 transform ${
+            phoneImages.length ? "" : "hidden"
+          }`}
           onClick={handlePreviousClick}
         >
           <NavigateNextIcon />
         </IconButton>
 
-        <Stack className="h-[200px] w-full min-w-[220px] max-w-[500px] sm:h-[600px]">
-          <img
-            src={phoneImages[imageIndex]}
-            alt={`${phoneName} image`}
-            className="h-full object-contain"
-          />
+        <Stack className="flex h-[200px] w-full min-w-[220px] max-w-[500px] sm:h-[600px]">
+          {phoneImages.length ? (
+            <img
+              src={phoneImages[imageIndex]}
+              alt={`${phoneName} image`}
+              className="h-full object-contain"
+            />
+          ) : (
+            <Tooltip title="Image Not Found" placement="right">
+              <DeviceUnknownIcon className=" h-full w-full" />
+            </Tooltip>
+          )}
         </Stack>
 
-        <IconButton onClick={handleNextClick} aria-label="next">
+        <IconButton
+          onClick={handleNextClick}
+          aria-label="next"
+          className={phoneImages.length ? "" : "hidden"}
+        >
           <NavigateNextIcon />
         </IconButton>
       </Stack>
