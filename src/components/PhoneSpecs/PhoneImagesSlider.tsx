@@ -26,14 +26,14 @@ const PhoneImagesSlider = ({
     <Box>
       <Stack
         direction={"row"}
-        justifyContent={phoneImages.length ? "space-between" : "center"}
+        justifyContent={phoneImages.length > 1 ? "space-between" : "center"}
         alignItems={"center"}
         spacing={2}
       >
         <IconButton
           aria-label="previous"
           className={`rotate-180 transform ${
-            phoneImages.length ? "" : "hidden"
+            phoneImages.length > 1 ? "" : "hidden"
           }`}
           onClick={handlePreviousClick}
         >
@@ -57,7 +57,7 @@ const PhoneImagesSlider = ({
         <IconButton
           onClick={handleNextClick}
           aria-label="next"
-          className={phoneImages.length ? "" : "hidden"}
+          className={phoneImages.length > 1 ? "" : "hidden"}
         >
           <NavigateNextIcon />
         </IconButton>
