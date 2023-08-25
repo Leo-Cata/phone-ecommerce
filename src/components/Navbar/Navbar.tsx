@@ -8,9 +8,11 @@ import {
 } from "@mui/material";
 import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
 import NavbarDrawer from "./NavbarDrawer";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     // nav bar
     <AppBar position="static" className="bg-custom-secondary">
@@ -38,12 +40,24 @@ const Navbar = () => {
           className="hidden text-white md:block"
         >
           <Link to={"/"}>
-            <Button color="inherit" variant="text" className="">
+            <Button
+              color="inherit"
+              variant="text"
+              className={
+                location.pathname === "/" ? "bg-[#ffffffcc]/[0.08]" : ""
+              }
+            >
               <Typography variant="subtitle1">Latest</Typography>
             </Button>
           </Link>
           <Link to={"/brands"}>
-            <Button color="inherit" variant="text">
+            <Button
+              color="inherit"
+              variant="text"
+              className={
+                location.pathname === "/brands" ? "bg-[#ffffffcc]/[0.08]" : ""
+              }
+            >
               <Typography variant="subtitle1">Phone Brands</Typography>
             </Button>
           </Link>
