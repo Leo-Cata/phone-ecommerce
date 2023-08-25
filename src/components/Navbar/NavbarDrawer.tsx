@@ -14,11 +14,15 @@ import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded
 import CloseIcon from "@mui/icons-material/Close";
 
 import { Link } from "react-router-dom";
+import { LocationPathnameProp } from "../../types/types";
 
-const NavbarDrawer = () => {
+const NavbarDrawer = ({ locationPathname }: LocationPathnameProp) => {
+  //needed state to properly close in certain cases
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
+  //handler function to close the menu
   const handleClose = () => setIsDrawerOpen(false);
+
   return (
     <>
       {/* hamburger menu icon to open drawer starts*/}
@@ -44,7 +48,6 @@ const NavbarDrawer = () => {
               <Link
                 className="inline-flex space-x-2"
                 to={"/"}
-                // className="flex w-full flex-row justify-between space-x-4"
                 onClick={() => setIsDrawerOpen(false)}
               >
                 {/* icon and app name starts */}
@@ -75,14 +78,24 @@ const NavbarDrawer = () => {
           {/* links starts */}
           <ListItem onClick={handleClose}>
             <Link to={"/"} className="w-full">
-              <ListItemButton LinkComponent={"a"} className="rounded-md">
+              <ListItemButton
+                LinkComponent={"a"}
+                className={`${
+                  locationPathname === "/" ? "bg-[#ffffffcc]/[0.08]" : ""
+                } rounded-md`}
+              >
                 Latest Phones
               </ListItemButton>
             </Link>
           </ListItem>
           <ListItem onClick={handleClose}>
             <Link to={"/brands"} className="w-full">
-              <ListItemButton LinkComponent={"a"} className="rounded-md">
+              <ListItemButton
+                LinkComponent={"a"}
+                className={`${
+                  locationPathname === "/brands" ? "bg-[#ffffffcc]/[0.08]" : ""
+                } rounded-md`}
+              >
                 Phone Brands
               </ListItemButton>
             </Link>

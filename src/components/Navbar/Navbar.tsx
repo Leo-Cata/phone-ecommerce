@@ -11,7 +11,8 @@ import NavbarDrawer from "./NavbarDrawer";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const location = useLocation();
+  //get the pathname of the location to give a look of active to the current page
+  const locationPathname = useLocation().pathname;
 
   return (
     // nav bar
@@ -44,7 +45,7 @@ const Navbar = () => {
               color="inherit"
               variant="text"
               className={
-                location.pathname === "/" ? "bg-[#ffffffcc]/[0.08]" : ""
+                locationPathname === "/" ? "bg-[#ffffffcc]/[0.08]" : ""
               }
             >
               <Typography variant="subtitle1">Latest</Typography>
@@ -55,7 +56,7 @@ const Navbar = () => {
               color="inherit"
               variant="text"
               className={
-                location.pathname === "/brands" ? "bg-[#ffffffcc]/[0.08]" : ""
+                locationPathname === "/brands" ? "bg-[#ffffffcc]/[0.08]" : ""
               }
             >
               <Typography variant="subtitle1">Phone Brands</Typography>
@@ -65,7 +66,8 @@ const Navbar = () => {
         {/* links buttons ends*/}
 
         {/* mobile menu */}
-        <NavbarDrawer />
+        {/* passes the location to not to repeat the same code */}
+        <NavbarDrawer locationPathname={locationPathname} />
       </Toolbar>
     </AppBar>
   );

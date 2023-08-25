@@ -129,3 +129,8 @@ export interface PhoneImagesSliderProps {
   phoneImages: string[];
   phoneName: string;
 }
+
+//interface for passing useLocation().pathname from desktop menu to mobile
+export interface LocationPathnameProp {
+  locationPathname: string
+}
