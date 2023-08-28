@@ -1,3 +1,4 @@
+import { Variant } from '@mui/material/styles/createTypography'
 import { ReactNode } from 'react'
 
 export interface PhoneBrands {
@@ -138,5 +139,5 @@ export interface LocationPathnameProp {
 //interface for the props passed to customTypography
 export interface CustomTypographyProps {
   displayedText: string
-  textVariant: string
+  textVariant: Variant
 }
