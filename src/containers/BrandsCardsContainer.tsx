@@ -24,11 +24,12 @@ const BrandsCardsContainer = () => {
   }, []);
 
   const pageTitle = "Check All The Phones Offered By Most Brands";
+  const textVariant = "h3";
 
   //if the data is loaded, displays it else load the skeleton
   return (
     <>
-      <CustomTypography displayedText={pageTitle} />
+      <CustomTypography displayedText={pageTitle} textVariant={textVariant} />
       {phoneBrands ? (
         <BrandsCards phoneBrands={phoneBrands} />
       ) : (

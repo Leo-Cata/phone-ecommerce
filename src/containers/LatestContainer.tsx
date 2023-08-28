@@ -23,10 +23,10 @@ const LatestContainer = () => {
   }, []);
 
   const titleText = "Check The Latest Released Phones";
-
+  const textVariant = "h3";
   return (
     <>
-      <CustomTypography displayedText={titleText} />
+      <CustomTypography displayedText={titleText} textVariant={textVariant} />
       {latestPhones ? (
         <LatestPhonesCards latestPhones={latestPhones} />
       ) : (

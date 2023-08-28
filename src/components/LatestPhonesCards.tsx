@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material'
-import { LatestPhonesCardsProps } from '../types/types'
-import CustomCard from './CustomCard'
+import { Grid } from "@mui/material";
+import { LatestPhonesCardsProps } from "../types/types";
+import CustomCard from "./CustomCard";
 
 const LatestPhonesCards = ({ latestPhones }: LatestPhonesCardsProps) => {
   // gets latest phones data and maps through them to display on cards
@@ -8,6 +8,7 @@ const LatestPhonesCards = ({ latestPhones }: LatestPhonesCardsProps) => {
     <Grid container>
       {latestPhones.map((phone) => (
         <CustomCard
+          key={phone.slug}
           customKey={phone.slug}
           linkTo={`/${phone.slug}`}
           image={phone.image}
@@ -17,7 +18,7 @@ const LatestPhonesCards = ({ latestPhones }: LatestPhonesCardsProps) => {
         />
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export default LatestPhonesCards
+export default LatestPhonesCards;
