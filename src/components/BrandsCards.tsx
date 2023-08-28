@@ -1,35 +1,35 @@
-import { Grid } from '@mui/material'
-import { PhoneBrands } from '../types/types'
-import { useEffect, useState } from 'react'
-import { getBrandBySlug } from '../services/phoneApi'
-import CustomCard from './CustomCard'
-import CustomCardsSkeleton from './Skeletons/CustomCardsSkeleton'
+import { Grid } from "@mui/material";
+import { PhoneBrands } from "../types/types";
+import { useEffect, useState } from "react";
+import { getBrandBySlug } from "../services/phoneApi";
+import CustomCard from "./CustomCard";
+import CustomCardsSkeleton from "./Skeletons/CustomCardsSkeleton";
 
 const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
-  const [phoneImages, setPhoneImages] = useState<string[]>()
+  const [phoneImages, setPhoneImages] = useState<string[]>();
 
   useEffect(() => {
     //from phoneBrands map through them and then save each brand slug in a new array
     const extractBrandSlugs = (Array: PhoneBrands[]): string[] =>
-      Array.map((brand) => brand.brand_slug)
-    const extractedSlugs = extractBrandSlugs(phoneBrands)
+      Array.map((brand) => brand.brand_slug);
+    const extractedSlugs = extractBrandSlugs(phoneBrands);
 
     //map through those brand slugs and for each one, fetch them, then return the image of the first element of each brand slug
     const fetchBrandsImgBySlug = async () => {
       try {
         const brandDataPromises = extractedSlugs.map(async (brandSlug) => {
-          const response = await getBrandBySlug(brandSlug)
-          return response.data.data.phones[0].image
-        })
+          const response = await getBrandBySlug(brandSlug);
+          return response.data.data.phones[0].image;
+        });
         //wait for it to complete all the fetching and then save it in a state
-        const phoneData = await Promise.all(brandDataPromises)
-        setPhoneImages(phoneData)
+        const phoneData = await Promise.all(brandDataPromises);
+        setPhoneImages(phoneData);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchBrandsImgBySlug()
-  }, [phoneBrands])
+    };
+    fetchBrandsImgBySlug();
+  }, [phoneBrands]);
 
   return (
     <Grid container>
@@ -37,6 +37,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
       {phoneImages ? (
         phoneBrands.map((brand, index) => (
           <CustomCard
+            key={brand.brand_slug}
             customKey={brand.brand_slug}
             linkTo={`/brands/${brand.brand_slug}`}
             image={phoneImages[index]}
@@ -49,7 +50,7 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
         <CustomCardsSkeleton />
       )}
     </Grid>
-  )
-}
+  );
+};
 
-export default BrandsCards
+export default BrandsCards;

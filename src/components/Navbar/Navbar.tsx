@@ -30,7 +30,7 @@ const Navbar = () => {
           </IconButton>
         </Link>
         <Typography variant="h6" className="flex-grow">
-          <Link to={"/"}>Phone E-commerce</Link>
+          <Link to={"/"}>Phone Specs Hub</Link>
         </Typography>
         {/* icon and app name ends */}
 

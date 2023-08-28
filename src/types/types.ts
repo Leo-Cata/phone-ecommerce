@@ -1,3 +1,4 @@
+import { Variant } from '@mui/material/styles/createTypography'
 import { ReactNode } from 'react'
 
 export interface PhoneBrands {
@@ -133,4 +134,10 @@ export interface PhoneImagesSliderProps {
 //interface for passing useLocation().pathname from desktop menu to mobile
 export interface LocationPathnameProp {
   locationPathname: string
+}
+
+//interface for the props passed to customTypography
+export interface CustomTypographyProps {
+  displayedText: string
+  textVariant: Variant
 }

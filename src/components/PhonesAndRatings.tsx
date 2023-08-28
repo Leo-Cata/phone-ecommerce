@@ -1,5 +1,5 @@
-import { Divider, Link, Stack, Typography } from '@mui/material'
-import { RatingsProps } from '../types/types'
+import { Divider, Link, Stack, Typography } from "@mui/material";
+import { RatingsProps } from "../types/types";
 
 const PhonesAndRatings = ({
   firstText,
@@ -14,18 +14,20 @@ const PhonesAndRatings = ({
         underline="none"
         className="cursor-pointer"
         href={`/${slug}`}
-        key={customKey}>
+        key={customKey}
+      >
         <Stack
-          direction={'row'}
-          className="w-[350px]"
-          justifyContent={'space-between'}>
+          direction={"row"}
+          className="w-[350px] transform duration-100 hover:scale-105"
+          justifyContent={"space-between"}
+        >
           <Typography variant="h6">{firstText}</Typography>
           <Typography variant="h6">{SecondText}</Typography>
         </Stack>
       </Link>
       <Divider />
     </>
-  )
-}
+  );
+};
 
-export default PhonesAndRatings
+export default PhonesAndRatings;
