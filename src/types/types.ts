@@ -141,3 +141,8 @@ export interface CustomTypographyProps {
   displayedText: string
   textVariant: Variant
 }
+
+//interface for the brands and images
+export interface BrandsImages{
+    [brandName: string]: string;
+}
