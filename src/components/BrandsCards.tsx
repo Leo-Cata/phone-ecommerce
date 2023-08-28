@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { BrandsImages, PhoneBrands } from "../types/types";
 import { useEffect, useState } from "react";
 import { getBrandBySlug } from "../services/phoneApi";
@@ -53,47 +53,52 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
 
   // code to manage searching for specific brands ends
   return (
-    <Grid container>
-      <input
-        type="text"
-        placeholder="asd"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="text-blue-900"
-      />
-      {/* if there are images, map through each of phone brands, else display a simple skeleton
+    <>
+      <div className="w-full pl-2">
+        <TextField
+          id="filled-Search-Input"
+          variant="filled"
+          label="Search for a brand"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
+      <Grid container>
+        {/* if there are images, map through each of phone brands, else display a simple skeleton
       when the user types in the search box, it will filter and render only the matches, if the query becomes empty it will show all brands
       */}
-      {phoneImages ? (
-        searchQuery === "" ? (
-          phoneBrands.map((brand) => (
-            <CustomCard
-              key={brand.brand_slug}
-              customKey={brand.brand_slug}
-              linkTo={`/brands/${brand.brand_slug}`}
-              image={brandsImages[brand.brand_name]}
-              alt={`${brand.brand_name}`}
-              title={brand.brand_name}
-              text={`Available Devices ${brand.device_count}`}
-            />
-          ))
+        {phoneImages ? (
+          searchQuery === "" ? (
+            phoneBrands.map((brand) => (
+              <CustomCard
+                key={brand.brand_slug}
+                customKey={brand.brand_slug}
+                linkTo={`/brands/${brand.brand_slug}`}
+                image={brandsImages[brand.brand_name]}
+                alt={`${brand.brand_name}`}
+                title={brand.brand_name}
+                text={`Available Devices ${brand.device_count}`}
+              />
+            ))
+          ) : (
+            filteredBrands.map((brand) => (
+              <CustomCard
+                key={brand.brand_slug}
+                customKey={brand.brand_slug}
+                linkTo={`/brands/${brand.brand_slug}`}
+                image={brandsImages[brand.brand_name]}
+                alt={`${brand.brand_name}`}
+                title={brand.brand_name}
+                text={`Available Devices ${brand.device_count}`}
+              />
+            ))
+          )
         ) : (
-          filteredBrands.map((brand) => (
-            <CustomCard
-              key={brand.brand_slug}
-              customKey={brand.brand_slug}
-              linkTo={`/brands/${brand.brand_slug}`}
-              image={brandsImages[brand.brand_name]}
-              alt={`${brand.brand_name}`}
-              title={brand.brand_name}
-              text={`Available Devices ${brand.device_count}`}
-            />
-          ))
-        )
-      ) : (
-        <CustomCardsSkeleton />
-      )}
-    </Grid>
+          <CustomCardsSkeleton />
+        )}
+      </Grid>
+    </>
   );
 };
 
