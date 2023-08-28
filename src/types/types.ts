@@ -134,3 +134,8 @@ export interface PhoneImagesSliderProps {
 export interface LocationPathnameProp {
   locationPathname: string
 }
+
+//interface for the props passed to customTypography
+export interface CustomTypographyProps {
+  displayedText: string
+}
