@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import { getBrandBySlug } from '../services/phoneApi'
-import { BrandsPhoneList, Phones } from '../types/types'
-import { AxiosResponse } from 'axios'
-import PhoneCards from '../components/PhoneCards'
-import PageNumbersButtons from '../components/PageNumbersButton'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { getBrandBySlug } from "../services/phoneApi";
+import { BrandsPhoneList, Phones } from "../types/types";
+import { AxiosResponse } from "axios";
+import PhoneCards from "../components/PhoneCards";
+import PageNumbersButtons from "../components/PageNumbersButton";
+import CustomTypography from "../components/CustomTypography";
 
 const PhoneListContainer = () => {
   //get the brand slug when the user clicks on the brand list
-  const { brandSlug } = useParams()
+  const { brandSlug } = useParams();
 
   //set the array of phones
-  const [brandsPhones, setBrandsPhones] = useState<Phones[]>()
+  const [brandsPhones, setBrandsPhones] = useState<Phones[]>();
 
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
 
-  const [numberOfPages, setNumberOfPages] = useState(1)
+  const [numberOfPages, setNumberOfPages] = useState(1);
 
   //fetch the list of phones for said brand
   useEffect(() => {
@@ -24,27 +25,31 @@ const PhoneListContainer = () => {
         if (brandSlug) {
           const response: AxiosResponse<BrandsPhoneList> = await getBrandBySlug(
             brandSlug,
-            page,
-          )
-          setNumberOfPages(response.data.data.last_page)
-          const brandsPhones: Phones[] = response.data.data.phones
-          setBrandsPhones(brandsPhones)
+            page
+          );
+          setNumberOfPages(response.data.data.last_page);
+          const brandsPhones: Phones[] = response.data.data.phones;
+          setBrandsPhones(brandsPhones);
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchBrandsPhones()
-  }, [brandSlug, page])
+    };
+    fetchBrandsPhones();
+  }, [brandSlug, page]);
 
   const handlePage = (page: number) => {
-    setPage(page)
-  }
+    setPage(page);
+  };
 
   return (
     <>
       {brandsPhones && (
         <>
+          <CustomTypography
+            textVariant="h3"
+            displayedText={`${brandsPhones[0].brand} Phones`}
+          />
           <PhoneCards brandsPhones={brandsPhones} />
           <PageNumbersButtons
             handlePage={handlePage}
@@ -54,7 +59,7 @@ const PhoneListContainer = () => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default PhoneListContainer
+export default PhoneListContainer;

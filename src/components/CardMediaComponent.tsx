@@ -1,5 +1,5 @@
-import { CardMedia } from '@mui/material'
-import { CardMediaProps } from '../types/types'
+import { CardMedia } from "@mui/material";
+import { CardMediaProps } from "../types/types";
 
 const CardMediaComponent = ({ image, alt }: CardMediaProps) => {
   // modular card media which receives the img to display and the alt
@@ -8,10 +8,10 @@ const CardMediaComponent = ({ image, alt }: CardMediaProps) => {
       component="img"
       image={image}
       alt={alt}
-      className="mt-2 h-[270px] min-w-[220px] object-contain"
+      className="mt-4 h-[270px] min-w-[220px] object-contain"
       loading="lazy"
     />
-  )
-}
+  );
+};
 
-export default CardMediaComponent
+export default CardMediaComponent;
