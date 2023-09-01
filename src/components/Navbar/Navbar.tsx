@@ -9,7 +9,7 @@ import {
 import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
 import NavbarDrawer from "./NavbarDrawer";
 import { Link, useLocation } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import DesktopSearchBar from "./DesktopSearchBar";
 
 const Navbar = () => {
   //get the pathname of the location to give a look of active to the current page
@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     // nav bar
     <AppBar position="static" className="bg-custom-secondary">
-      <Toolbar className="flex justify-between">
+      <Toolbar className="flex justify-between md:items-baseline">
         {/* icon and app name starts */}
         <Stack direction={"row"}>
           <Link to={"/"}>
@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* icon and app name ends */}
 
         {/* search bar */}
-        <SearchBar />
+        <DesktopSearchBar />
         {/* search bar */}
 
         {/* links buttons starts*/}
