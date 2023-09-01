@@ -146,3 +146,8 @@ export interface CustomTypographyProps {
 export interface BrandsImages{
     [brandName: string]: string;
 }
+
+//boolean for mobile searchbar
+export interface MobileSearchBar{
+  isForMobile: boolean
+}

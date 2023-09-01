@@ -9,7 +9,7 @@ import {
 import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
 import NavbarDrawer from "./NavbarDrawer";
 import { Link, useLocation } from "react-router-dom";
-import DesktopSearchBar from "./DesktopSearchBar";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   //get the pathname of the location to give a look of active to the current page
@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* icon and app name ends */}
 
         {/* search bar */}
-        <DesktopSearchBar />
+        <SearchBar isForMobile={false} />
         {/* search bar */}
 
         {/* links buttons starts*/}

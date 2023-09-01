@@ -1,14 +1,18 @@
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { MobileSearchBar } from "../../types/types";
 
-const MobileSearchBar = () => {
+const SearchBar = ({ isForMobile }: MobileSearchBar) => {
+  //gets boolean and implements styles and variant for mobile or desktop
   return (
     <TextField
-      className="mx-1 w-full bg-[#ffffffcc]/[0.08]"
+      className={`${
+        isForMobile ? "mx-1 w-full bg-[#ffffffcc]/[0.08]" : "hidden md:block"
+      }`}
       size="small"
       id="search-input"
       label="Search"
-      variant="outlined"
+      variant={`${isForMobile ? "outlined" : "standard"}`}
       InputProps={{
         endAdornment: (
           <InputAdornment position="start">
@@ -20,4 +24,4 @@ const MobileSearchBar = () => {
   );
 };
 
-export default MobileSearchBar;
+export default SearchBar;
