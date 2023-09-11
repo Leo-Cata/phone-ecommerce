@@ -5,6 +5,7 @@ import { SearchDataArray } from "../types/types";
 import SearchResultsCards from "../components/SearchResultsCards";
 
 const SearchResultsContainer = () => {
+  // gets the string to search from the params, passed when pressing enter in the search bar
   const { searchQuery } = useParams();
   const [searchResults, setSearchResults] = useState<SearchDataArray | null>(
     null
@@ -13,6 +14,7 @@ const SearchResultsContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        //exporting the api from phoneApis as arrow func passing the search query will return the url and not the fetch
         const resp = await axios.get(
           `https://phonewise.onrender.com/api/search?q=${searchQuery}`
         );
@@ -27,9 +29,7 @@ const SearchResultsContainer = () => {
   }, [searchQuery]);
 
   return (
-    <div>
-      {searchResults && <SearchResultsCards searchResults={searchResults} />}
-    </div>
+    <>{searchResults && <SearchResultsCards searchResults={searchResults} />}</>
   );
 };
 

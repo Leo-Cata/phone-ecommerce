@@ -3,7 +3,7 @@ import CustomCard from "./CustomCard";
 import { Grid } from "@mui/material";
 
 const SearchResultsCards = ({ searchResults }: searchDataProps) => {
-  console.log(searchResults);
+  //TODO: display skeleton and error message if no phone was found
   return (
     <Grid container>
       {searchResults.map((phone) => (
