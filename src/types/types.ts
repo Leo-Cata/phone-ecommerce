@@ -164,3 +164,8 @@ export interface SearchData {
 
 //for the array of the fetched data
 export type SearchDataArray = SearchData[]
+
+//for the props that are passed from the container to the component
+export interface searchDataProps {
+  searchResults: SearchData[]
+}

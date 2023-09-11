@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SearchDataArray } from "../types/types";
+import SearchResultsCards from "../components/SearchResultsCards";
 
 const SearchResultsContainer = () => {
   const { searchQuery } = useParams();
@@ -25,9 +26,11 @@ const SearchResultsContainer = () => {
     fetchData();
   }, [searchQuery]);
 
-  console.log(searchResults);
-
-  return <div></div>;
+  return (
+    <div>
+      {searchResults && <SearchResultsCards searchResults={searchResults} />}
+    </div>
+  );
 };
 
 export default SearchResultsContainer;
