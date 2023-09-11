@@ -60,7 +60,7 @@ export interface PhoneSpecsProps {
 
 export interface BasicInfoProps {
   // os is giving error when type is set to string so it is set to any in types.ts
-  os: any
+  os: unknown
   storage: string
   dimension: string
   release: string
@@ -151,3 +151,16 @@ export interface BrandsImages{
 export interface MobileSearchBar{
   isForMobile: boolean
 }
+
+//type for the items inside the array of the fetched search results also used when mapping
+export interface SearchData {
+  _id: string
+  slug: string
+  brand: string
+  image: string
+  phone_name: string
+  __v: number
+}
+
+//for the array of the fetched data
+export type SearchDataArray = SearchData[]
