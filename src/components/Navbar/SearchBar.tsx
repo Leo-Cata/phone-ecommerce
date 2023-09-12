@@ -15,14 +15,25 @@ const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
     setSearchQuery(event.target.value);
   };
 
-  const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //first type is for submitting a form, second form is when clicking with mouse, third event is when pressing on mobile
+  const handleSubmit = (
+    event:
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLElement>
+      | React.TouchEvent<HTMLElement>
+  ) => {
     event.preventDefault();
-    if (searchQuery) nav(`/search/${searchQuery}`);
-    handleClose();
+    if (searchQuery.length >= 3) {
+      nav(`/search/${searchQuery}`);
+
+      if (isForMobile) {
+        handleClose();
+      }
+    }
   };
 
   return (
-    <form onSubmit={HandleSubmit} className={`${isForMobile ? "w-full" : ""}`}>
+    <form onSubmit={handleSubmit} className={`${isForMobile ? "w-full" : ""}`}>
       <TextField
         className={`${
           isForMobile ? "mx-1 w-full bg-[#ffffffcc]/[0.08]" : "hidden md:block"
@@ -35,7 +46,12 @@ const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
         variant={`${isForMobile ? "outlined" : "standard"}`}
         InputProps={{
           endAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment
+              position="start"
+              onClick={handleSubmit}
+              onTouchStart={handleSubmit}
+              className="cursor-pointer"
+            >
               <SearchIcon />
             </InputAdornment>
           ),
