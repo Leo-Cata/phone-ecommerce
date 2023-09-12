@@ -147,9 +147,10 @@ export interface BrandsImages{
     [brandName: string]: string;
 }
 
-//boolean for mobile searchbar
+//boolean for mobile searchbar, if the type is () void it will not work, throw error 'handleClose is not a function' on the file used
 export interface MobileSearchBar{
   isForMobile: boolean
+  handleClose: VoidFunction
 }
 
 //type for the items inside the array of the fetched search results also used when mapping

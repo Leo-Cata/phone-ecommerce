@@ -104,7 +104,7 @@ const NavbarDrawer = ({ locationPathname }: LocationPathnameProp) => {
           {/* links ends */}
           {/* mobile search bar */}
           <ListItem>
-            <SearchBar isForMobile={true} />
+            <SearchBar isForMobile={true} handleClose={handleClose} />
           </ListItem>
           {/* mobile search bar */}
         </List>
