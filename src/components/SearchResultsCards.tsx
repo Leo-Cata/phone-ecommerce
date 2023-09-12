@@ -1,35 +1,31 @@
 import { searchDataProps } from "../types/types";
 import CustomCard from "./CustomCard";
-import { Grid } from "@mui/material";
-// import { useState } from "react";
+import { Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import CustomPageButtonGroup from "./CustomPageButtonGroup";
 
 const SearchResultsCards = ({ searchResults }: searchDataProps) => {
-  // //TODO: display skeleton and error message if no phone was found
-  // //keep track of the current page
-  // const [currentPage, setCurrentPage] = useState(1);
+  //keep track of the current page
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  //set the number of items to be displayed per page
+  const itemsPerPage = 20;
 
-  // //set the number of items to be displayed per page
-  // const itemsPerPage = 20;
+  //calculate the start and end index of the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
-  // //calculate the start and end index of the current page
-  // const startIndex = (currentPage - 1) * itemsPerPage;
-  // const endIndex = startIndex + itemsPerPage;
+  //slice the data fetched to display the itemsPerPage number of items
+  const currentItems = searchResults.slice(startIndex, endIndex);
 
-  // //slice the data fetched to display the itemsPerPage number of items
-  // const currentItems = searchResults.slice(startIndex, endIndex);
-
-  // const loadNextPage = () => {
-  //   setCurrentPage((prevPage) => prevPage + 1);
-  // };
-  // const loadPrevPage = () => {
-  //   setCurrentPage((prevPage) => prevPage - 1);
-  // };
-
+  //gets pageNumber from the CustomPageButtonGroup and sets the current page to that button clicked
+  const handlePage = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
   return (
     <>
-      <h1>{searchResults.length} matching results</h1>
+      <Typography></Typography>
       <Grid container>
-        {searchResults.map((phone) => (
+        {currentItems.map((phone) => (
           <CustomCard
             key={phone._id}
             customKey={phone._id}
@@ -41,10 +37,11 @@ const SearchResultsCards = ({ searchResults }: searchDataProps) => {
           />
         ))}
       </Grid>
-      {/* <button onClick={loadNextPage}>asd </button>
-      <button onClick={loadPrevPage} className="text-red-800">
-        asd
-      </button> */}
+      <CustomPageButtonGroup
+        handlePage={handlePage}
+        numberOfPages={searchResults.length / 20}
+        page={currentPage}
+      />
     </>
   );
 };
