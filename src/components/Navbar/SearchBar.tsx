@@ -30,7 +30,7 @@ const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
     if (searchQuery.length >= 3) {
       setError(false);
       nav(`/search/${searchQuery}`);
-      if (isForMobile) {
+      if (isForMobile && handleClose) {
         handleClose();
       }
     } else setError(true);
