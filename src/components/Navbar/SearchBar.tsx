@@ -1,4 +1,4 @@
-import { TextField, InputAdornment } from "@mui/material";
+import { TextField, InputAdornment, FormHelperText } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { MobileSearchBar } from "../../types/types";
 import { ChangeEvent, useState } from "react";
@@ -7,6 +7,8 @@ import { useNavigate } from "react-router";
 //gets boolean and implements styles and variant for mobile or desktop
 const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [error, setError] = useState<boolean>(false);
 
   const nav = useNavigate();
 
@@ -23,13 +25,15 @@ const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
       | React.TouchEvent<HTMLElement>
   ) => {
     event.preventDefault();
-    if (searchQuery.length >= 3) {
-      nav(`/search/${searchQuery}`);
 
+    //if the searchQuery is longer than 3 characters, search, else set error to true which will display a FormHelperText below the search bar
+    if (searchQuery.length >= 3) {
+      setError(false);
+      nav(`/search/${searchQuery}`);
       if (isForMobile) {
         handleClose();
       }
-    }
+    } else setError(true);
   };
 
   return (
@@ -56,7 +60,11 @@ const SearchBar = ({ isForMobile, handleClose }: MobileSearchBar) => {
             </InputAdornment>
           ),
         }}
+        error={error}
       />
+      <FormHelperText>
+        {error ? "Your search should be at least 3 characters long" : ""}
+      </FormHelperText>
     </form>
   );
 };
