@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'https://phone-specs-api.vercel.app/'
+const baseURL = 'https://phone-specs-api.vercel.app/';
 
 //create a base url
 const api = axios.create({
@@ -29,7 +29,11 @@ export const getBrandBySlug = (brandSlug: string, page?: number) =>
 //fetch latest phones
 export const getLatestPhones = () => api.get('/latest')
 
-//fetch by interest
+//fetch by interest and fans
 export const getByInterest = () => api.get('/top-by-interest')
 
 export const getByFans = () => api.get('/top-by-fans')
+
+
+//search for phones, utilizes a different api with the same format
+export const getSearchResults = (searchQuery: string) => `https://phonewise.onrender.com/api/search?q=${searchQuery}`

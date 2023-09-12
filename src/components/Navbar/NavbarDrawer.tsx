@@ -15,6 +15,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { Link } from "react-router-dom";
 import { LocationPathnameProp } from "../../types/types";
+import SearchBar from "./SearchBar";
 
 const NavbarDrawer = ({ locationPathname }: LocationPathnameProp) => {
   //needed state to properly close in certain cases
@@ -101,6 +102,11 @@ const NavbarDrawer = ({ locationPathname }: LocationPathnameProp) => {
             </Link>
           </ListItem>
           {/* links ends */}
+          {/* mobile search bar */}
+          <ListItem>
+            <SearchBar isForMobile={true} handleClose={handleClose} />
+          </ListItem>
+          {/* mobile search bar */}
         </List>
       </Drawer>
     </>

@@ -1,10 +1,10 @@
 import { ButtonGroup, Button } from "@mui/material";
 import { ButtonInputAndPages } from "../types/types";
 import scrollToTop from "../utils/scrollToTop";
-const PageNumbersButtons = ({
+const CustomPageButtonGroup = ({
   handlePage,
   numberOfPages,
-  page,
+  currentPage,
 }: ButtonInputAndPages) => {
   //create an array mapping from 0+1 to the length of the number of pages
   const pageNumbers = Array.from(
@@ -14,7 +14,7 @@ const PageNumbersButtons = ({
 
   return (
     // whatever number of the page is on, makes it looks 'active'
-    <ButtonGroup aria-label="page number" className="bg-custom-secondary ">
+    <ButtonGroup aria-label="page number" className="bg-custom-secondary">
       {pageNumbers.map((pageNumber) => (
         <Button
           onClick={() => {
@@ -23,7 +23,7 @@ const PageNumbersButtons = ({
           }}
           key={pageNumber}
           value={pageNumber}
-          className={page === pageNumber ? "bg-custom-primary " : ""}
+          className={currentPage === pageNumber ? "" : "bg-custom-primary"}
           aria-label={`page number ${pageNumber}`}
         >
           {pageNumber}
@@ -33,4 +33,4 @@ const PageNumbersButtons = ({
   );
 };
 
-export default PageNumbersButtons;
+export default CustomPageButtonGroup;

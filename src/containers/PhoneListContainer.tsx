@@ -4,8 +4,8 @@ import { getBrandBySlug } from "../services/phoneApi";
 import { BrandsPhoneList, Phones } from "../types/types";
 import { AxiosResponse } from "axios";
 import PhoneCards from "../components/PhoneCards";
-import PageNumbersButtons from "../components/PageNumbersButton";
 import CustomTypography from "../components/CustomTypography";
+import CustomPagination from "../components/CustomPagination";
 
 const PhoneListContainer = () => {
   //get the brand slug when the user clicks on the brand list
@@ -51,10 +51,10 @@ const PhoneListContainer = () => {
             displayedText={`${brandsPhones[0].brand} Phones`}
           />
           <PhoneCards brandsPhones={brandsPhones} />
-          <PageNumbersButtons
+          <CustomPagination
             handlePage={handlePage}
             numberOfPages={numberOfPages}
-            page={page}
+            currentPage={page}
           />
         </>
       )}
