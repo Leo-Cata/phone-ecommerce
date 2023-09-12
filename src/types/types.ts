@@ -27,9 +27,9 @@ export interface Phones {
 }
 
 export interface ButtonInputAndPages {
-  handlePage: (page: number) => void
+  handlePage: (page: number) => void 
   numberOfPages: number
-  page: number
+  currentPage: number
 }
 
 export interface PhoneSpecifications {
