@@ -3,7 +3,6 @@ import { LatestPhones } from "../types/types";
 import { getLatestPhones } from "../services/phoneApi";
 import LatestPhonesCards from "../components/LatestPhonesCards";
 import CustomSkeleton from "../components/Skeletons/CustomCardsSkeleton";
-import { Grid } from "@mui/material";
 import CustomTypography from "../components/CustomTypography";
 
 const LatestContainer = () => {
@@ -30,9 +29,7 @@ const LatestContainer = () => {
       {latestPhones ? (
         <LatestPhonesCards latestPhones={latestPhones} />
       ) : (
-        <Grid container>
-          <CustomSkeleton />
-        </Grid>
+        <CustomSkeleton />
       )}
     </>
   );
