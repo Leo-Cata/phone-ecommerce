@@ -7,6 +7,7 @@ import BasicInfo from "../components/PhoneSpecs/BasicInfo";
 import PhoneSpecs from "../components/PhoneSpecs/PhoneSpecs";
 import PhoneSpecsSkeleton from "../components/Skeletons/PhoneSpecsSkeleton";
 import PhoneImagesSlider from "../components/PhoneSpecs/PhoneImagesSlider";
+import scrollToTop from "../utils/scrollToTop";
 
 const PhoneSpecsContainer = () => {
   //getting the slug from params
@@ -15,13 +16,10 @@ const PhoneSpecsContainer = () => {
   //state to save the data fetched
   const [phoneSpecifications, setPhoneSpecifications] =
     useState<PhoneSpecifications | null>(null);
-  console.log(
-    "🚀 ~ file: PhoneSpecsContainer.tsx:16 ~ PhoneSpecsContainer ~ phoneSpecifications:",
-    phoneSpecifications
-  );
 
   //use effect to fetch
   useEffect(() => {
+    scrollToTop();
     const fetchPhoneSpecs = async () => {
       try {
         if (phoneSlug) {

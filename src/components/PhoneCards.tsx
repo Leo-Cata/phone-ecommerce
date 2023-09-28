@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material'
-import { Phones } from '../types/types'
-import CustomCard from './CustomCard'
+import { Grid } from "@mui/material";
+import { Phones } from "../types/types";
+import CustomCard from "./CustomCard";
 
 const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
   return (
@@ -8,6 +8,7 @@ const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
       {/* display phones in selected brand */}
       {brandsPhones.map((phone) => (
         <CustomCard
+          key={phone.slug}
           customKey={phone.slug}
           linkTo={`/${phone.slug}`}
           image={phone.image}
@@ -17,7 +18,7 @@ const PhoneCards = ({ brandsPhones }: { brandsPhones: Phones[] }) => {
         />
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export default PhoneCards
+export default PhoneCards;

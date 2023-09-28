@@ -1,3 +1,4 @@
+import { Variant } from '@mui/material/styles/createTypography'
 import { ReactNode } from 'react'
 
 export interface PhoneBrands {
@@ -26,9 +27,9 @@ export interface Phones {
 }
 
 export interface ButtonInputAndPages {
-  handlePage: (page: number) => void
+  handlePage: (page: number) => void 
   numberOfPages: number
-  page: number
+  currentPage: number
 }
 
 export interface PhoneSpecifications {
@@ -128,4 +129,44 @@ export interface RatingsProps {
 export interface PhoneImagesSliderProps {
   phoneImages: string[];
   phoneName: string;
+}
+
+//interface for passing useLocation().pathname from desktop menu to mobile
+export interface LocationPathnameProp {
+  locationPathname: string
+}
+
+//interface for the props passed to customTypography
+export interface CustomTypographyProps {
+  displayedText: string
+  textVariant: Variant
+}
+
+//interface for the brands and images
+export interface BrandsImages{
+    [brandName: string]: string;
+}
+
+//boolean for mobile searchbar, if the type is () void it will not work, throw error 'handleClose is not a function' on the file used
+export interface MobileSearchBar{
+  isForMobile: boolean
+  handleClose?: VoidFunction
+}
+
+//type for the items inside the array of the fetched search results also used when mapping
+export interface SearchData {
+  _id: string
+  slug: string
+  brand: string
+  image: string
+  phone_name: string
+  __v: number
+}
+
+//for the array of the fetched data
+export type SearchDataArray = SearchData[]
+
+//for the props that are passed from the container to the component
+export interface searchDataProps {
+  searchResults: SearchData[]
 }

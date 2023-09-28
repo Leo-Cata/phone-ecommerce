@@ -1,37 +1,42 @@
-import { useState, useEffect } from 'react'
-import { getBrands } from '../services/phoneApi'
-import BrandsCards from '../components/BrandsCards'
-import { PhoneBrands } from '../types/types'
-import CustomCardsSkeleton from '../components/Skeletons/CustomCardsSkeleton'
+import { useState, useEffect } from "react";
+import { getBrands } from "../services/phoneApi";
+import BrandsCards from "../components/BrandsCards";
+import { PhoneBrands } from "../types/types";
+import CustomCardsSkeleton from "../components/Skeletons/CustomCardsSkeleton";
+import CustomTypography from "../components/CustomTypography";
 
 const BrandsCardsContainer = () => {
-  const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>()
+  const [phoneBrands, setPhoneBrands] = useState<PhoneBrands[]>();
   // saves the data in state and later passes it
 
   //fetches the brands, ignoring unnecessary path
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const brandsResponse = await getBrands()
-        setPhoneBrands(brandsResponse.data.data)
+        const brandsResponse = await getBrands();
+        setPhoneBrands(brandsResponse.data.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    fetchBrands()
-  }, [])
+    fetchBrands();
+  }, []);
+
+  const pageTitle = "Check All The Phones Offered By Most Brands";
+  const textVariant = "h3";
 
   //if the data is loaded, displays it else load the skeleton
   return (
     <>
+      <CustomTypography displayedText={pageTitle} textVariant={textVariant} />
       {phoneBrands ? (
         <BrandsCards phoneBrands={phoneBrands} />
       ) : (
         <CustomCardsSkeleton />
       )}
     </>
-  )
-}
+  );
+};
 
-export default BrandsCardsContainer
+export default BrandsCardsContainer;
