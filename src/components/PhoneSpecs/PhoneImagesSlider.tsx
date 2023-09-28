@@ -26,18 +26,18 @@ const PhoneImagesSlider = ({
     <Box>
       <Stack
         direction={"row"}
-        justifyContent={phoneImages.length ? "space-between" : "center"}
+        justifyContent={phoneImages.length > 1 ? "space-evenly" : "center"}
         alignItems={"center"}
         spacing={2}
       >
         <IconButton
           aria-label="previous"
           className={`rotate-180 transform ${
-            phoneImages.length ? "" : "hidden"
+            phoneImages.length > 1 ? "" : "hidden"
           }`}
           onClick={handlePreviousClick}
         >
-          <NavigateNextIcon />
+          <NavigateNextIcon className="text-2xl sm:text-4xl" />
         </IconButton>
 
         <Stack className="flex h-[200px] w-full min-w-[220px] max-w-[500px] sm:h-[600px]">
@@ -57,9 +57,9 @@ const PhoneImagesSlider = ({
         <IconButton
           onClick={handleNextClick}
           aria-label="next"
-          className={phoneImages.length ? "" : "hidden"}
+          className={phoneImages.length > 1 ? "" : "hidden"}
         >
-          <NavigateNextIcon />
+          <NavigateNextIcon className="text-2xl sm:text-4xl" />
         </IconButton>
       </Stack>
       <Stack
@@ -68,7 +68,7 @@ const PhoneImagesSlider = ({
         spacing={2}
         className="mt-3"
       >
-        {phoneImages &&
+        {phoneImages.length > 1 &&
           phoneImages.map((img, index) => (
             <HorizontalRuleRoundedIcon
               key={img}
