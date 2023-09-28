@@ -26,7 +26,7 @@ const PhoneImagesSlider = ({
     <Box>
       <Stack
         direction={"row"}
-        justifyContent={phoneImages.length > 1 ? "space-between" : "center"}
+        justifyContent={phoneImages.length > 1 ? "space-evenly" : "center"}
         alignItems={"center"}
         spacing={2}
       >
@@ -37,7 +37,7 @@ const PhoneImagesSlider = ({
           }`}
           onClick={handlePreviousClick}
         >
-          <NavigateNextIcon />
+          <NavigateNextIcon className="text-2xl sm:text-4xl" />
         </IconButton>
 
         <Stack className="flex h-[200px] w-full min-w-[220px] max-w-[500px] sm:h-[600px]">
@@ -59,7 +59,7 @@ const PhoneImagesSlider = ({
           aria-label="next"
           className={phoneImages.length > 1 ? "" : "hidden"}
         >
-          <NavigateNextIcon />
+          <NavigateNextIcon className="text-2xl sm:text-4xl" />
         </IconButton>
       </Stack>
       <Stack
