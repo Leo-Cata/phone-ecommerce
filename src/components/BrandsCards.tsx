@@ -56,9 +56,10 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
     <>
       <div className="w-full pl-2">
         <TextField
+          disabled={phoneImages ? false : true}
           id="filled-Search-Input"
           variant="filled"
-          label="Search for a brand"
+          label={phoneImages ? "Search for a brand" : "Loading"}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
