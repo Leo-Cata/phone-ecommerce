@@ -68,7 +68,7 @@ const PhoneImagesSlider = ({
         spacing={2}
         className="mt-3"
       >
-        {phoneImages &&
+        {phoneImages.length > 1 &&
           phoneImages.map((img, index) => (
             <HorizontalRuleRoundedIcon
               key={img}
