@@ -59,7 +59,9 @@ const NavbarDrawer = ({ locationPathname }: LocationPathnameProp) => {
                   <EdgesensorHighRoundedIcon />
                 </ListItemButton>
 
-                <Typography variant="h6">Phone Specs Hub</Typography>
+                <Typography variant="h6" className="font-montserrat">
+                  Phone Specs Hub
+                </Typography>
               </Link>
             </Stack>
             {/* icon and app ends */}

@@ -24,7 +24,11 @@ const InterestContainer = () => {
 
   return (
     <Box className="w-fit">
-      <Typography textAlign={"center"} variant="h5" className="mb-2 lg:mb-4">
+      <Typography
+        textAlign={"center"}
+        variant="h5"
+        className="mb-2 font-montserrat lg:mb-4"
+      >
         Top Phones By Interest
       </Typography>
       {byInterestPhones ? (

@@ -9,6 +9,10 @@ export default {
         'custom-secondary': '#100f24',
         'custom-accent': '#413a92',
       },
+      fontFamily:{
+        'hyperlegible' : ['Atkinson Hyperlegible', 'sans-serif'],
+        'montserrat' : ['Montserrat', 'sans-serif']
+      }
     },
   },
   plugins: [],

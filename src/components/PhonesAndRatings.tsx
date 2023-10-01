@@ -25,8 +25,12 @@ const PhonesAndRatings = ({
           className="w-[350px] transform duration-100 hover:scale-105"
           justifyContent={"space-between"}
         >
-          <Typography variant="h6">{firstText}</Typography>
-          <Typography variant="h6">{SecondText}</Typography>
+          <Typography variant="h6" className="font-hyperlegible">
+            {firstText}
+          </Typography>
+          <Typography variant="h6" className="font-hyperlegible">
+            {SecondText}
+          </Typography>
         </Stack>
       </Link>
       <Divider />
