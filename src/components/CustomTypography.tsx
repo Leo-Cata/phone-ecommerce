@@ -7,7 +7,10 @@ const CustomTypography = ({
 }: CustomTypographyProps) => {
   return (
     <Box justifyContent={"center"} display={"flex"}>
-      <Typography variant={textVariant} className="my-10 text-center">
+      <Typography
+        variant={textVariant}
+        className="my-10 text-center font-montserrat"
+      >
         {displayedText}
       </Typography>
     </Box>

@@ -39,7 +39,11 @@ const PhoneSpecsContainer = () => {
       {phoneSpecifications ? (
         <Paper className="w-full bg-custom-secondary">
           <Stack spacing={2} className="p-4">
-            <Typography variant="h3" textAlign={"center"}>
+            <Typography
+              variant="h3"
+              textAlign={"center"}
+              className="font-montserrat"
+            >
               {phoneSpecifications.brand} {""} {phoneSpecifications.phone_name}
             </Typography>
 

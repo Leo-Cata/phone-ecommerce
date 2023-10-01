@@ -31,7 +31,7 @@ const Navbar = () => {
               <EdgesensorHighRoundedIcon />
             </IconButton>
           </Link>
-          <Typography variant="h6" className="">
+          <Typography variant="h6" className="font-montserrat">
             <Link to={"/"}>Phone Specs Hub</Link>
           </Typography>
         </Stack>
@@ -55,7 +55,9 @@ const Navbar = () => {
                 locationPathname === "/" ? "bg-[#ffffffcc]/[0.08]" : ""
               }
             >
-              <Typography variant="subtitle1">Latest</Typography>
+              <Typography variant="subtitle1" className="font-montserrat">
+                Latest
+              </Typography>
             </Button>
           </Link>
           <Link to={"/brands"}>
@@ -66,7 +68,9 @@ const Navbar = () => {
                 locationPathname === "/brands" ? "bg-[#ffffffcc]/[0.08]" : ""
               }
             >
-              <Typography variant="subtitle1">Phone Brands</Typography>
+              <Typography variant="subtitle1" className="font-montserrat">
+                Phone Brands
+              </Typography>
             </Button>
           </Link>
         </Stack>
