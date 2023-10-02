@@ -54,16 +54,15 @@ const BrandsCards = ({ phoneBrands }: { phoneBrands: PhoneBrands[] }) => {
   // code to manage searching for specific brands ends
   return (
     <>
-      <div className="w-full pl-2">
-        <TextField
-          disabled={phoneImages ? false : true}
-          id="filled-Search-Input"
-          variant="filled"
-          label={phoneImages ? "Search for a brand" : "Loading"}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
+      <TextField
+        className="flex self-start pl-2"
+        disabled={phoneImages ? false : true}
+        id="filled-Search-Input"
+        variant="filled"
+        label={phoneImages ? "Search for a brand" : "Loading"}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
 
       <Grid container>
         {/* if there are images, map through each of phone brands, else display a simple skeleton
