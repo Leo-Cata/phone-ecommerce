@@ -7,6 +7,7 @@ import WrapperContainer from "./containers/WrapperContainer";
 import LatestContainer from "./containers/LatestContainer";
 import FansAndInterest from "./components/FansAndInterest";
 import SearchResultsContainer from "./containers/SearchResultsContainer";
+import Footer from "./components/Footer";
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const App = () => {
         </Routes>
         {isDefaultOrBrands && <FansAndInterest />}
       </WrapperContainer>
+      <Footer />
     </div>
   );
 };
